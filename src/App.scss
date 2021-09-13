@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+
+div {
+  .hero{
+    height: 100vh;
+    display: flex;
+    
+    &.column-center-end{
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    &.end{
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+}

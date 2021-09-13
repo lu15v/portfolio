@@ -1,0 +1,41 @@
+$assetPath :"../assets/";
+
+.main-background{
+    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1)), url(#{$assetPath}/main-background.jpg);
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.name-container,
+div.occupation-container{
+    height: auto;
+    width: 50%;
+    position: relative;
+    top: 70px;
+
+    & span{
+        color: #fff;
+        font-family: 'Anurati';
+    }
+    & .spacing-right{
+        padding-right: 10px;
+    }
+}
+
+div.name-container{
+    font-size: 45px;
+}
+
+div.occupation-container{
+    font-size: 20px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    div.name-container,
+    div.occupation-container{
+        width: auto;
+    }
+
+}
