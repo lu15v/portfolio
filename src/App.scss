@@ -8,10 +8,10 @@ div {
     height: 100vh;
     display: flex;
     
-    &.column-center-end{
+    &.column-centered{
       flex-direction: column;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
     }
     &.end{
       justify-content: flex-end;
