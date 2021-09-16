@@ -1,4 +1,4 @@
-import Presentation from './components/Presentation';
+import Curtain from './components/Curtain';
 import MainPage from './components/MainPage';
 
 import './App.scss';
@@ -6,7 +6,7 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      {sessionStorage.getItem("presentation") ? <MainPage/> : <Presentation/>}
+      {sessionStorage.getItem("curtain") ? <MainPage/> : <Curtain/>}
     </div>
   );
 }

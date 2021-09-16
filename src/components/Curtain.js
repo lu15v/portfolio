@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react';
-import '../styles/presentation.scss';
+import '../styles/curtain.scss';
 
-const Presentation = () =>{
+const Curtain = () =>{
     
     const [L, setL] = useState('');
     const [U, setU] = useState('');
@@ -50,7 +50,7 @@ const Presentation = () =>{
     }
 
     const enterToSite = () =>{
-        sessionStorage.setItem("presentation", true);
+        sessionStorage.setItem("curtain", true);
     }
 
     return(
@@ -95,4 +95,4 @@ const Presentation = () =>{
 };
 
 
-export default Presentation;
+export default Curtain;
