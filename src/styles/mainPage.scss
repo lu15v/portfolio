@@ -1,0 +1,121 @@
+.mainPage-container {
+    background-color: #000;
+    // justify-content: start;
+    // justify-content: center;
+
+    overflow: hidden;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    transition: left 400ms cubic-bezier(0.23, 1, 0.32, 1), opacity 250ms cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+div#content{
+    padding-top: 0px;
+    padding-bottom: 60px;
+    overflow-y: auto;
+    // height: 480px;
+    // // height: 70%; //set to auto for smaller screens
+    // width: 85%;
+    // max-width: 1400px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // // position: relative;
+    // top: 200px;
+    flex: 1;
+}
+
+div#primary{
+    transition: all 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+    z-index: 999;
+}
+
+div.wrapper{
+    max-width: 1440px;
+    margin: auto;
+    position: relative;
+}
+
+main.grid{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+div.menu-grid-container{
+    width: 100%;
+    transition: height 400ms linear;
+    min-height: 100vh;
+}
+
+div.menu-elements{
+    // width: 100%;
+    transition: height 400ms linear;
+    display: grid;
+    // grid-template-columns: 1.6fr .8fr .8fr 1fr;
+    // grid-template-columns: minmax(auto,450px) minmax(auto,450px) minmax(auto,225px) minmax(auto,225px);
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(225px, 450));
+    grid-gap: 10px;
+    grid-auto-rows: minmax(240px, auto);
+}
+
+div.portfolio{
+    background-color: red;
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+div.about{
+    background-color: purple;
+    grid-row: span 1;
+}
+div.contact{
+    background-color: orange;
+    grid-row: span 1;
+}
+
+div.old-site{
+    background-color: yellow;
+    grid-row: span 2;
+}
+div.resume{
+    background-color: green;
+    grid-row: span 1;
+    grid-column: span 2;
+}
+
+@media screen and (max-width: 768px){
+    .wrapper,
+    main.grid {
+        padding: 0 30px;
+    }
+    div.portfolio,
+    div.old-site{
+        grid-row: span 1;
+    }
+    div.about,
+    div.contact,
+    div.old-site{
+        grid-column: span 2;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1366px){
+    .wrapper,
+    main.grid {
+        padding: 0 65px;
+    }
+}
+
+@media screen and (min-width: 1367px){
+    .wrapper {
+        padding: 0 100px;
+        max-width: auto;
+        width: 100%;
+    }
+}

@@ -3,6 +3,7 @@
   font-family: 'Anurati';
   src: local('Anurati'), url('./assets/Anurati-Regular.otf') format('truetype');
 }
+html, body, div#root {margin:0;padding:0;height:100%;}
 
 body {
   margin: 0;
@@ -11,6 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 code {

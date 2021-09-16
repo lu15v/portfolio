@@ -1,9 +1,8 @@
 import React,{useState, useEffect} from 'react';
-import '../styles/main.scss';
+import '../styles/presentation.scss';
 
-const Main = () =>{
-
-
+const Presentation = () =>{
+    
     const [L, setL] = useState('L');
     const [U, setU] = useState('#');
     const [I, setI] = useState('1');
@@ -96,4 +95,4 @@ const Main = () =>{
 };
 
 
-export default Main;
+export default Presentation;

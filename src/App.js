@@ -1,11 +1,12 @@
-import Main from './components/Main';
+import Presentation from './components/Presentation';
+import MainPage from './components/MainPage';
 
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <Main/>
+      {sessionStorage.getItem("presentation") ? <MainPage/> : <Presentation/>}
     </div>
   );
 }
