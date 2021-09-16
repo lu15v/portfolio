@@ -3,20 +3,20 @@ import '../styles/presentation.scss';
 
 const Presentation = () =>{
     
-    const [L, setL] = useState('L');
-    const [U, setU] = useState('#');
-    const [I, setI] = useState('1');
-    const [S, setS] = useState('5');
-    const [B, setB] = useState('8');
-    const [A, setA] = useState('4');
-    const [N, setN] = useState('&');
-    const [W, setW] = useState('@');
-    const [E, setE] = useState('3');
-    const [O, setO] = useState('0');
-    const [F, setF] = useState('7');
-    const [T, setT] = useState('!');
-    const [R, setR] = useState('~');
-    const [G, setG] = useState('6');
+    const [L, setL] = useState('');
+    const [U, setU] = useState('');
+    const [I, setI] = useState('');
+    const [S, setS] = useState('');
+    const [B, setB] = useState('');
+    const [A, setA] = useState('');
+    const [N, setN] = useState('');
+    const [W, setW] = useState('');
+    const [E, setE] = useState('');
+    const [O, setO] = useState('');
+    const [F, setF] = useState('');
+    const [T, setT] = useState('');
+    const [R, setR] = useState('');
+    const [G, setG] = useState('');
 
 
     useEffect(() =>{
