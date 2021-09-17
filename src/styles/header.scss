@@ -1,0 +1,13 @@
+header.site-header{
+    margin: 40px 0;
+    height: 20vh;
+}
+
+header div.header-wrapper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1440px;
+    margin: auto;
+    position: relative;
+}
