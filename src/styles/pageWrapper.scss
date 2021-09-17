@@ -1,0 +1,55 @@
+.page-wrapper-container{
+    background-color: #000;
+    overflow-y: auto;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+}
+
+div#content{
+    padding-top: 0px;
+    padding-bottom: 60px;
+    flex: 1;
+}
+
+div.wrapper{
+    max-width: 1440px;
+    margin: auto;
+    position: relative;
+}
+
+main.grid{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+
+//Media queries
+
+@media screen and (max-width: 768px){
+    .wrapper,
+    main.grid {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1366px){
+    .wrapper,
+    main.grid {
+        padding: 0 65px;
+    }
+}
+
+@media screen and (min-width: 1367px){
+    .wrapper {
+        padding: 0 100px;
+        max-width: auto;
+        width: 100%;
+    }
+}
