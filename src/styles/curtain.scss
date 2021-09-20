@@ -1,11 +1,11 @@
+@import "variables.scss";
+
 $assetPath:"../assets/";
-// $bordeux: "#88061c";
-$bordeux: "#860029";
-// $bordeux: "#7a04eb";
+
 
 .main-background{
     background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1)), url(#{$assetPath}/main-background.jpg);
-    background-color: #000;
+    background-color: #{$rBlack};
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -16,7 +16,7 @@ div.occupation-container{
     position: fixed;
     letter-spacing: 2px;
     & span{
-        color: #fff;
+        color: #{$white};
         font-family: 'Anurati';
         // font-family: 'Open Sans Condensed', sans-serif;
         
@@ -40,7 +40,7 @@ div.occupation-container{
 }
 
 div.enter-to-site-container{
-    color: #fff;
+    color: #{$white};
     position: fixed;
     top: 60%;
     font-size: 25px;

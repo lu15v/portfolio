@@ -1,5 +1,7 @@
+@import 'variables.scss';
+
 .page-wrapper-container{
-    background-color: #000;
+    background-color: #{$rBlack};
     overflow-y: auto;
     display: flex;
     min-height: 100vh;
