@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import SquaredLink from './SquaredLink';
 
 import '../styles/mainPage.scss';
 
@@ -8,21 +8,11 @@ const MainPage = () =>{
     return(
         <div id="menu-grid" className="menu-grid-container">
             <div className="menu-elements">
-                <div className="portfolio">
-                    <NavLink to="/portfolio">Portfolio</NavLink>
-                </div>
-                <div className="about">
-                    <NavLink to="/about">About</NavLink>
-                </div>
-                <div className="contact">
-                    <NavLink to="/contact">Contact</NavLink>
-                </div>
-                <div className="old-site">
-                    <a target="_blank" href="https://rasanod.com">Old site</a>
-                </div>
-                <div className="resume">
-                    <NavLink to="/resume">Resume</NavLink>
-                </div>
+                <SquaredLink styles="portfolio" linkTo="/portfolio" name="Portfolio"/>
+                <SquaredLink styles="about" linkTo="/about" name="About"/>
+                <SquaredLink styles="contact" linkTo="/contact" name="Contact"/>
+                <SquaredLink styles="old-site" name="Contact" url="https://rasanod.com"/>
+                <SquaredLink styles="resume" linkTo="/resume" name="Resume"/>
             </div>
         </div>
     );

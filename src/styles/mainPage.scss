@@ -11,61 +11,14 @@ div.menu-elements{
     grid-auto-rows: minmax(240px, auto);
 }
 
-div.portfolio{
-    background-color: red;
-    grid-column: span 2;
-    grid-row: span 2;
-    opacity: 0;
-    animation: showingDown .5s linear 0s 1 normal forwards;
+div.menu-elements div > a.link{
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
 }
 
-div.about{
-    background-color: purple;
-    grid-row: span 1;
-    opacity: 0;
-    animation: showingDown .7s linear .8s 1 normal forwards;
-}
-div.contact{
-    background-color: orange;
-    grid-row: span 1;
-    opacity: 0;
-    animation: showingDown .5s linear .9s 1 normal forwards;
-}
-
-div.old-site{
-    background-color: yellow;
-    grid-row: span 2;
-    opacity: 0;
-    animation: showingDown .7s linear .8s 1 normal forwards;
-}
-div.resume{
-    background-color: green;
-    grid-row: span 1;
-    grid-column: span 2;
-    opacity: 0;
-    animation: showingDown .7s linear .3s 1 normal forwards;
-}
-
-@media screen and (max-width: 768px){
-    div.portfolio,
-    div.old-site{
-        grid-row: span 1;
-    }
-    div.about,
-    div.contact,
-    div.old-site{
-        grid-column: span 2;
-    }
-}
-
-//animations
-@keyframes showingDown {
-    from{
-        opacity: 0;
-        transform: translate(0, -20px);
-    }
-    to{
-        opacity: 1;
-        transform: translate(0, 0);
-    }
+div.menu-elements div > a.link:hover{
+    z-index: 999;
+    background-color: rgba(0,0,0,0.7);
 }
