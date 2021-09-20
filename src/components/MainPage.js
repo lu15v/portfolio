@@ -11,7 +11,7 @@ const MainPage = () =>{
                 <SquaredLink styles="portfolio" linkTo="/portfolio" name="Portfolio"/>
                 <SquaredLink styles="about" linkTo="/about" name="About"/>
                 <SquaredLink styles="contact" linkTo="/contact" name="Contact"/>
-                <SquaredLink styles="old-site" name="Contact" url="https://rasanod.com"/>
+                <SquaredLink styles="old-site" name="Old Site" url="https://rasanod.com"/>
                 <SquaredLink styles="resume" linkTo="/resume" name="Resume"/>
             </div>
         </div>

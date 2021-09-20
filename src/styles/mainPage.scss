@@ -10,15 +10,3 @@ div.menu-elements{
     grid-gap: 10px;
     grid-auto-rows: minmax(240px, auto);
 }
-
-div.menu-elements div > a.link{
-    height: 100%;
-    width: 100%;
-    display: inline-block;
-    text-decoration: none;
-}
-
-div.menu-elements div > a.link:hover{
-    z-index: 999;
-    background-color: rgba(0,0,0,0.7);
-}
