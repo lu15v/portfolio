@@ -1,8 +1,10 @@
 import React,{useState, useEffect} from 'react';
+import { withRouter } from "react-router-dom";
+
 import '../styles/curtain.scss';
 
-const Curtain = () =>{
-    
+const Curtain = ({history}) =>{
+
     const [L, setL] = useState('');
     const [U, setU] = useState('');
     const [I, setI] = useState('');
@@ -51,6 +53,7 @@ const Curtain = () =>{
 
     const enterToSite = () =>{
         sessionStorage.setItem("curtain", true);
+        history.push('/');
     }
 
     return(
@@ -95,4 +98,4 @@ const Curtain = () =>{
 };
 
 
-export default Curtain;
+export default withRouter(Curtain);

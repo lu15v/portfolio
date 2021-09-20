@@ -1,5 +1,6 @@
 import Curtain from './components/Curtain';
 import PageWrapper from './components/PageWrapper';
+import { withRouter } from "react-router-dom";
 
 import './App.scss';
 
@@ -13,4 +14,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);

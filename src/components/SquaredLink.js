@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
-import {useHistory } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 import '../styles/squaredLink.scss';
 
 const SquaredLink = (props) =>{
-    const {styles, linkTo, name, url} = props;
+    const {styles, linkTo, name, url, history} = props;
 
     return(
         <div className={styles}>
-            <HoverContent name={name} linkTo={linkTo} url={url}/>
+            <HoverContent name={name} linkTo={linkTo} url={url} history={history}/>
         </div>
     )
 }
 
-const HoverContent = ({name, linkTo, url}) =>{
+const HoverContent = ({name, linkTo, url, history}) =>{
     const [isHovering, setIsHovering] = useState();
-    const history = useHistory();
 
     const handleOnClick = (linkTo, url) =>{
         linkTo && history.push(linkTo);
@@ -41,4 +40,4 @@ const HoverContent = ({name, linkTo, url}) =>{
     )
 }
 
-export default SquaredLink;
+export default withRouter(SquaredLink);

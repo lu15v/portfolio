@@ -1,5 +1,6 @@
 import React from 'react';
 import SquaredLink from './SquaredLink';
+import { withRouter } from "react-router-dom";
 
 import '../styles/mainPage.scss';
 
@@ -18,4 +19,4 @@ const MainPage = () =>{
     );
 }
 
-export default MainPage;
+export default withRouter(MainPage);
