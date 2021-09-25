@@ -1,22 +1,32 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
+
+import picture from '../assets/logo.png';
 
 import '../styles/header.scss';
 
-const Header = () =>{
+const Header = ({history}) =>{
+    // const {pathname} = useLocation();
+
+    const redirectHome = () =>{
+        history.push('/');
+    }
+
     return(
         <header className="site-header">
             <div className="header-wrapper">
-                <div className="site-header">
-                    <NavLink to="/portfolio">Portfolio</NavLink>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/contact">Conctact</NavLink>
-                    <NavLink to="/about">About</NavLink>
-                    <NavLink to="/resume">Resume</NavLink>
+                <div className="header-content">
+                    <img id="logo"  className="logo" onClick={redirectHome} src={picture} alt="logo"/>
+                    <div className="navbar-wrapper">
+                        <NavLink className="example" to="/portfolio">Portfolio</NavLink>
+                        <NavLink to="/contact">Conctact</NavLink>
+                        <NavLink to="/about">About</NavLink>
+                        <NavLink to="/resume">Resume</NavLink>
+                    </div>
                 </div>
             </div>
         </header>
     );
 }
 
-export default Header;
+export default withRouter(Header);

@@ -1,7 +1,9 @@
 @import 'variables.scss';
 
 .page-wrapper-container{
-    background-color: #{$rBlack};
+    // background-color: #{$rBlack};
+    background-color: #{$white};
+    // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(134, 0, 41));
     overflow-y: auto;
     display: flex;
     min-height: 100vh;

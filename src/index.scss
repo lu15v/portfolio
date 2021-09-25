@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 @font-face {
-  font-family: 'Anurati';
-  src: local('Anurati'), url('./assets/Anurati-Regular.otf') format('truetype');
+  font-family: 'BauhausRegular';
+  src: local('BauhausRegular'), url('./assets/BauhausRegular.ttf') format('truetype');
 }
 html, body, div#root {margin:0;padding:0;height:100%;}
 
