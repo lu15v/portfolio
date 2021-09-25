@@ -4,20 +4,39 @@ $assetPath:"../assets/";
 
 
 .main-background{
-    background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1)), url(#{$assetPath}/main-background.jpg);
-    background-color: #{$rBlack};
+    position: relative;
+}
+.main-background::before{
+    content: '';
+    background-image: url(#{$assetPath}/curtain-background.jpeg);
+    // background: linear-gradient(45deg, rgb(134, 0, 41), rgb(0, 5, 5));
+    // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(0, 5, 5), rgb(255, 255, 255));
+    // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(134, 0, 41));
+    // background: linear-gradient(45deg, rgb(21, 28, 46), rgb(69, 94, 116));
+    // background: linear-gradient(45deg, rgb(69, 94, 116), rgb(170, 184, 195));
+    // background-color: #{$rBlack};
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+}
+
+div.curtain-content-wrapper{
+    position: relative;
 }
 
 div.name-container,
 div.occupation-container{
     height: auto;
-    position: fixed;
     letter-spacing: 2px;
+
     & span{
         color: #{$white};
-        font-family: 'Anurati';
+        font-family: #{$fBauhausRegular}
     }
     & .bordeux{
         color: #{$bordeux}
@@ -28,23 +47,21 @@ div.occupation-container{
 }
 
 div.name-container{
-    font-size: 50px;
-    top: 40%;
+    font-size: 60px;
+    margin-bottom: 1rem;
 }
 
 div.occupation-container{
-    font-size: 20px;
-    top: 47%;
+    font-size: 25px;
+    margin-bottom: 5rem;
 }
 
 div.enter-to-site-container{
     color: #{$white};
-    position: fixed;
-    top: 60%;
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Open Sans Condensed', sans-serif;
+    // text-transform: uppercase;
+    font-family: #{$fExpletus}, cursive;
     opacity: 0;
     animation: showUp 1.5s linear 3.5s infinite alternate forwards;
 
