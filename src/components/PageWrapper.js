@@ -1,9 +1,8 @@
 import React from 'react';
 import Header from './Header';
 import {Switch, Route} from 'react-router-dom';
-import MainPage from './MainPage';
 import Projects from './Projects';
-import Project from './Project';
+import Portfolio from './Portfolio';
 import Resume from './Resume';
 import Contact from './Contact';
 import About from './About';
@@ -22,12 +21,11 @@ const PageWrapper = () =>{
                     <Header/>
                     <main id="main" className="grid">
                             <Switch>
-                                <Route exact path='/' component={MainPage} />
-                                <Route exact path='/portfolio' component={Projects} />
-                                <Route path='/portfolio/:item' component={Project} />
-                                <Route path='/contact' component={Contact} />
-                                <Route path='/about' component={About} />
-                                <Route path='/resume' component={Resume} />
+                                <Route exact path='/' component={Portfolio} />
+                                <Route exact path='/contact' component={Contact} />
+                                <Route exact path='/about' component={About} />
+                                <Route exact path='/resume' component={Resume} />
+                                <Route exact path='/:item' component={Projects} />
                                 <Route component={NotFound} />
                             </Switch>
                     </main>

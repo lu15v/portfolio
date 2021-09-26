@@ -1,0 +1,48 @@
+@import './variables';
+
+div.portfolio-items div.item,
+div.portfolio-items div.item-info{
+    position: relative;
+    max-height: 300px;
+    background-image: url('http://cdn.cnn.com/cnnnext/dam/assets/190430171751-mona-lisa.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    // position: relative;
+    // background-color: unset;
+    // transition: 1.5s;
+}
+
+div.hover-wrapper-item{  
+    position: absolute;
+    background-color: rgba(0,5,5,0.8);
+    opacity: 0;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: 0.5s;
+}
+
+div.hover-wrapper-item.showUp{
+    opacity: .8;
+}
+
+div.hover-content{
+    display: flex;
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    font-family: #{$fBauhausRegular};
+    h3{
+        // left: 30%;
+        transform: rotate(-45deg);
+        // bottom: 50%;
+        // position: absolute;
+        margin:auto;
+    }
+}
