@@ -1,0 +1,12 @@
+.skeleton{
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading{
+    from{
+        background-color: hsl(200, 20%, 70%);
+    }
+    to{
+        background-color: hsl(200, 20%, 95%);
+    }
+}

@@ -1,7 +1,8 @@
 import React,{useState} from 'react';
+import { withRouter } from 'react-router';
 import '../styles/project.scss';
 
-const Project = ({name}) =>{
+const Project = ({name, history, isSkeleton}) =>{
     const [isHovering, setIsHovering] = useState();
 
     const validName = name || 'Unknown';
@@ -13,16 +14,22 @@ const Project = ({name}) =>{
     const handleMouseOut = () => {
         setIsHovering(false);
     };
+
+    const handleOnClick = () =>{
+        history.push(`/${name}`)
+    }
     
     return(
-        <div className="item" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-           <div className={isHovering ? "hover-wrapper-item showUp" : "hover-wrapper-item"}>
+        !isSkeleton ?(<div className="item" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleOnClick} >
+           <div className={isHovering ? "hover-wrapper-item showUp" : "hover-wrapper-item skeleton"}>
                 <div className="hover-content">
                     <h3>{validName}</h3>
                 </div>
             </div>
+        </div>) :
+        <div className="div.item-skeleton">
         </div>
     )
 }
 
-export default Project;
+export default withRouter(Project);

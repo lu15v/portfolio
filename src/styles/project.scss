@@ -1,19 +1,25 @@
 @import './variables';
 
 div.portfolio-items div.item,
-div.portfolio-items div.item-info{
+div.portfolio-items div.item-info,
+div.item-skeleton{
     position: relative;
     max-height: 300px;
+}
+div.portfolio-items div.item,
+div.portfolio-items div.item-info{
     background-image: url('http://cdn.cnn.com/cnnnext/dam/assets/190430171751-mona-lisa.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     cursor: pointer;
+    box-shadow: 0 8px 8px -4px #{$rBlack};
     // position: relative;
     // background-color: unset;
     // transition: 1.5s;
 }
-
+//rgb(134, 0, 41,0.8)
+//rgb(236, 164, 0)
 div.hover-wrapper-item{  
     position: absolute;
     background-color: rgba(0,5,5,0.8);
