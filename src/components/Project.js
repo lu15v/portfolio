@@ -21,7 +21,7 @@ const Project = ({name, history, isSkeleton}) =>{
     
     return(
         !isSkeleton ?(<div className="item" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleOnClick} >
-           <div className={isHovering ? "hover-wrapper-item showUp" : "hover-wrapper-item skeleton"}>
+           <div className={isHovering ? "hover-wrapper-item showUp" : "hover-wrapper-item"}>
                 <div className="hover-content">
                     <h3>{validName}</h3>
                 </div>

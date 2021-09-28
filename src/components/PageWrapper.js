@@ -7,6 +7,7 @@ import Resume from './Resume';
 import Contact from './Contact';
 import About from './About';
 import NotFound from './NotFound';
+import Footer from './Footer';
 import { withRouter } from "react-router-dom";
 
 import '../styles/pageWrapper.scss';
@@ -31,7 +32,8 @@ const PageWrapper = () =>{
                     </main>
                 </div>
             </div>
-    </div>
+            <Footer/>
+        </div>
     );
 }
 

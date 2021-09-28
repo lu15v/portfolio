@@ -18,8 +18,8 @@ const Header = ({history}) =>{
                 <div className="header-content">
                     <img id="logo"  className="logo" onClick={redirectHome} src={picture} alt="logo"/>
                     <div className="navbar-wrapper">
-                        <NavLink to="/contact">Conctact</NavLink>
                         <NavLink to="/about">About</NavLink>
+                        <NavLink to="/contact">Conctact</NavLink>
                         <NavLink to="/resume">Resume</NavLink>
                     </div>
                 </div>

@@ -1,0 +1,27 @@
+@import './variables.scss';
+
+div.footer-wrapper{
+    display: flex;
+    position: relative;
+    min-height: 10vh;
+    justify-content: center;
+    width: 100%;
+}
+
+div.footer-content{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 70%;
+    font-family: #{$fExpletus};
+}
+
+div.footer-content p{
+    text-align: end;
+    margin: 0;
+    font-size: 15px;
+    span.bordeux{
+        color: #{$bordeux};
+    }
+}
