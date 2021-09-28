@@ -1,5 +1,11 @@
 @import './variables';
 
+div.item{
+    opacity: 0;
+    animation: show 1s linear normal forwards;
+    top: -15px;
+}
+
 div.portfolio-items div.item,
 div.portfolio-items div.item-info,
 div.item-skeleton{
@@ -50,5 +56,15 @@ div.hover-content{
         // bottom: 50%;
         // position: absolute;
         margin:auto;
+    }
+}
+
+@keyframes show {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        top: 0px;
     }
 }
