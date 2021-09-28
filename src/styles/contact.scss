@@ -1,0 +1,12 @@
+div.menu-grid-container{
+    width: 100%;
+    transition: height 400ms linear;
+}
+
+div.menu-elements{
+    transition: height 400ms linear;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: minmax(240px, auto);
+}
