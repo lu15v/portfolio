@@ -20,3 +20,31 @@ div {
     }
   }
 }
+
+@media screen and (max-width: 768px){
+    .site-header,
+    .portfolio-items,
+    .about-content,
+    .footer-wrapper {
+        padding: 0 30px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1366px){
+    .site-header,
+    .portfolio-items,
+    .about-content,
+    .footer-wrapper {
+        padding: 0 65px;
+    }
+}
+
+@media screen and (min-width: 1367px){
+    .site-header,
+    .portfolio-items,
+    .about-content,
+    .footer-wrapper {
+        padding: 0 100px;
+        max-width: auto;
+    }
+}

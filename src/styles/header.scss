@@ -3,14 +3,14 @@
 header.site-header{
     margin: 40px 0;
     width: 100%;
+    display: flex;
+    justify-content: center
 }
 
 header div.header-wrapper{
-    // align-items: center;
-    max-width: 1440px;
-    // margin: auto;
+    width: 77%;
     position: relative;
-    height: 50%;
+    height: 100%;
 }
 
 div.header-wrapper .header-content{

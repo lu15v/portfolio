@@ -3,4 +3,5 @@ div.portfolio-items{
     grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     grid-gap: 10px;
     grid-auto-rows: minmax(300px, auto);
+    justify-content: center;
 }

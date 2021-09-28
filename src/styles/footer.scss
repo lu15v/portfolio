@@ -2,19 +2,18 @@
 
 div.footer-wrapper{
     display: flex;
-    position: relative;
     min-height: 10vh;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
+    flex: 1 1;
 }
 
 div.footer-content{
     display: flex;
-    position: absolute;
     flex-direction: column;
-    justify-content: flex-end;
-    width: 70%;
     font-family: #{$fExpletus};
+    align-self: end;
+    margin-bottom: 30px;
 }
 
 div.footer-content p{

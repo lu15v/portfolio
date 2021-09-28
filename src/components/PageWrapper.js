@@ -17,9 +17,9 @@ import '../styles/pageWrapper.scss';
 const PageWrapper = () =>{
     return(
         <div className="hero page-wrapper-container">
+            <Header/>
             <div id="content">
                 <div id="primary" className="wrapper">
-                    <Header/>
                     <main id="main" className="grid">
                             <Switch>
                                 <Route exact path='/' component={Portfolio} />
@@ -30,9 +30,9 @@ const PageWrapper = () =>{
                                 <Route component={NotFound} />
                             </Switch>
                     </main>
+                    <Footer/>
                 </div>
             </div>
-            <Footer/>
         </div>
     );
 }
