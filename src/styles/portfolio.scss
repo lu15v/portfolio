@@ -1,7 +1,28 @@
+@import "./variables.scss";
+
 div.portfolio-items{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     grid-gap: 10px;
     grid-auto-rows: minmax(300px, auto);
     justify-content: center;
+}
+
+div.load-more-wrapper{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button{
+        cursor: pointer;
+        background-color: #{$bordeux};
+        color: #{$white};
+        font-family: #{$fExpletus};
+        height: 40px;
+        width: 100px;
+        font-weight: 600;
+        font-size: 14px;
+    }
 }

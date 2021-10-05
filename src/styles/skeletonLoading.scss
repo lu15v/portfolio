@@ -1,5 +1,12 @@
 .skeleton{
     animation: skeleton-loading 1s linear infinite alternate;
+
+
+    button{
+        background: unset !important;
+        border: none !important;
+        cursor: unset !important;
+    }
 }
 
 @keyframes skeleton-loading{
