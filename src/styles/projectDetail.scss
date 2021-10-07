@@ -177,6 +177,10 @@
         justify-content: center;
     }
 
+    .stack-label-container{
+        padding-right: 1px;
+    }
+
     .stack-label-container h3{
         font-family: #{$fBauhausRegular};
         font-size: 24px;
@@ -205,6 +209,12 @@
                 animation: remove .5s linear 0s 1 normal forwards;
             }
         }
+    }
+}
+
+@media screen and (max-width: 500px){
+    .stack-label-container{
+        padding-right: 14px !important;
     }
 }
 

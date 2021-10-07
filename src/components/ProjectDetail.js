@@ -42,9 +42,9 @@ const ProjectDetail = () =>{
                         {loading ? (
                             <>
                                 <br/>
-                                <SkeletonLoading styles={{height: '10px', width: '250px'}}/>
+                                <SkeletonLoading styles={{height: '10px'}}/>
                                 <br/>
-                                <SkeletonLoading styles={{height: '100px', width: '550px'}}/>
+                                <SkeletonLoading styles={{height: '100px'}}/>
                             </>
                         ): (
                         <>
@@ -59,7 +59,7 @@ const ProjectDetail = () =>{
                     </div>
                     <div className="project-photo">
                         {loading ? (
-                            <SkeletonLoading styles={{height: '300px', width: '500px'}}/>
+                            <SkeletonLoading styles={{width: '500px'}}/>
                         ):(
                             <img className={animationClass} src={Webtry} alt="webtry" />
                         )
