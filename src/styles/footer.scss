@@ -2,10 +2,11 @@
 
 div.footer-wrapper{
     display: flex;
-    min-height: 10vh;
+    max-height: 15vh;
     justify-content: flex-end;
     width: 100%;
     flex: 1 1;
+    padding-top: 15px;
 }
 
 div.footer-content{

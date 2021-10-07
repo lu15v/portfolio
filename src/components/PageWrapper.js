@@ -30,9 +30,10 @@ const PageWrapper = () =>{
                                 <Route component={NotFound} />
                             </Switch>
                     </main>
-                    <Footer/>
+                    {/* <Footer/> */}
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }
