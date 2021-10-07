@@ -42,6 +42,14 @@
                 object-fit: cover;
                 max-width:100%;
                 max-height:100%;
+
+                &.show{
+                    animation: showingDown 1s linear 0s 1 normal forwards;
+                }
+
+                &.remove{
+                    animation: remove 1s linear 0s 1 normal forwards;
+                }
             }
         }
 
@@ -61,19 +69,43 @@
         .description > p{
             font-family: #{$fBauhausRegular};
             font-size: 16px;
+
+            &.show{
+                animation: showingDown .4s linear 0s 1 normal forwards;
+            }
+
+            &.remove{
+                animation: remove .4s linear 0s 1 normal forwards;
+            }
         }
         
         .description > article{
             font-family: #{$fExpletus};
-        }
-    }
 
-    .project-photo{
-        flex: 3;
-        img{
-            object-fit: cover;
-            max-width:100%;
-            max-height:80%;
+            &.show{
+                animation: showingDown .7s linear 0s 1 normal forwards;
+            }
+
+            &.remove{
+                animation: remove .7s linear 0s 1 normal forwards;
+            }
+        }
+
+        .project-photo{
+            flex: 3;
+            img{
+                object-fit: cover;
+                max-width:100%;
+                max-height:80%;
+
+                &.show{
+                    animation: showingDown .5s linear 0s 1 normal forwards;
+                }
+
+                &.remove{
+                    animation: remove .5s linear 0s 1 normal forwards;
+                }
+            }
         }
     }
 }
@@ -102,10 +134,34 @@
         height: 50px;
         cursor: pointer;
         transition: all 0.5s;
-    }
 
-    .navigation-buttons img:hover{
-        transform:scale(1.3)
+        &.show{
+            opacity: 0;
+        }
+
+        &[id='Before'].remove{
+            animation: remove .5s linear .1s 1 normal forwards;
+        }
+        &[id='Play'].remove{
+            animation: remove .5s linear .2s 1 normal forwards;
+        }
+        &[id='Next'].remove{
+            animation: remove .5s linear .3s 1 normal forwards;
+        }
+
+        &[id='Before'].show{
+            animation: showingDown .5s linear .3s 1 normal forwards;
+        }
+        &[id='Play'].show{
+            animation: showingDown .5s linear .2s 1 normal forwards;
+        }
+        &[id='Next'].show{
+            animation: showingDown .5s linear .1s 1 normal forwards;
+        }
+
+        &.show:hover{
+            transform:scale(1.3) !important;
+        }
     }
 }
 
@@ -124,6 +180,14 @@
     .stack-label-container h3{
         font-family: #{$fBauhausRegular};
         font-size: 24px;
+
+        &.show{
+            animation: showingDown .5s linear 0s 1 normal forwards;
+        }
+
+        &.remove{
+            animation: remove .5s linear 0s 1 normal forwards;
+        }
     }
 
     .stack-info-container{
@@ -132,6 +196,14 @@
 
         img{
             max-height: 70px;
+
+            &.show{
+                animation: showingDown .5s linear 0s 1 normal forwards;
+            }
+
+            &.remove{
+                animation: remove .5s linear 0s 1 normal forwards;
+            }
         }
     }
 }
@@ -143,6 +215,7 @@
         .project-photo{
             order: 0;
             justify-content: center;
+
             img{
                 max-height: 100% !important;
             }
@@ -152,16 +225,17 @@
             order: 1;
             flex-direction: column !important;
 
-            .project-name{
-                justify-content: center;
-                img{
-                    position: initial !important;
-                    padding-top: 20px;
-                }
-            }
-
             .description{
                 order: 1;
+
+                .project-name{
+                    justify-content: center;
+                    
+                    img{
+                        position: initial !important;
+                        padding-top: 20px;
+                    }
+                }
             }
         }
     }
@@ -179,4 +253,29 @@
             padding: 20px 0;
         }
     }
+}
+
+//animations
+@keyframes showingDown {
+    from{
+        opacity: 0;
+        transform: translate(0, -20px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes remove {
+    from{
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    to{
+        opacity: 0;
+        transform: translate(0, -20px);
+    }
+
 }
