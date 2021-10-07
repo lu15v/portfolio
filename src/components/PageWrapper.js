@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import {Switch, Route} from 'react-router-dom';
-import Projects from './Projects';
+import ProjectDetail from './ProjectDetail';
 import Portfolio from './Portfolio';
 import Resume from './Resume';
 import Contact from './Contact';
@@ -26,7 +26,7 @@ const PageWrapper = () =>{
                                 <Route exact path='/contact' component={Contact} />
                                 <Route exact path='/about' component={About} />
                                 <Route exact path='/resume' component={Resume} />
-                                <Route exact path='/:item' component={Projects} />
+                                <Route exact path='/:item' component={ProjectDetail} />
                                 <Route component={NotFound} />
                             </Switch>
                     </main>

@@ -1,0 +1,182 @@
+@import '../styles/variables.scss';
+
+.detail-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    min-height: 100%;
+}
+
+
+.detail-wrapper .project-desc-container{
+    display: flex;
+    flex-direction: column;
+    flex: 6 0;
+    justify-content: space-evenly;
+    padding-top: 2rem;
+    padding-right: 1rem;
+
+    .project-information,
+    .project-photo{
+        height: auto;
+        padding-left: 1rem;
+    }
+
+    .project-information{
+        display: flex;
+        flex-direction: row;
+
+        .project-name,
+        .description,
+        .project-photo{
+            display: flex;
+        }
+
+        .project-name{
+            position: relative;
+            height: 100px;
+            img{
+                position: absolute;
+                left: 0;
+                object-fit: cover;
+                max-width:100%;
+                max-height:100%;
+            }
+        }
+
+        .description{
+            flex: 3;
+            flex-direction: column;
+            padding-top: 1rem;
+        }
+
+        .description > p,
+        .description > article{
+            text-align: justify;
+            font-size: 14px;
+            color: #{$textGray}
+        }
+
+        .description > p{
+            font-family: #{$fBauhausRegular};
+            font-size: 16px;
+        }
+        
+        .description > article{
+            font-family: #{$fExpletus};
+        }
+    }
+
+    .project-photo{
+        flex: 3;
+        img{
+            object-fit: cover;
+            max-width:100%;
+            max-height:80%;
+        }
+    }
+}
+
+.detail-wrapper .project-stack-container,
+.detail-wrapper{
+    display: flex;
+    flex: 1 1;
+    height: 100%;
+}
+
+.detail-wrapper .project-navigation{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+
+    .navigation-buttons{
+        display: flex;
+        width: 50%;
+        justify-content: space-around;
+    }
+    .navigation-buttons img{
+        object-fit: cover;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: all 0.5s;
+    }
+
+    .navigation-buttons img:hover{
+        transform:scale(1.3)
+    }
+}
+
+.project-stack-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .stack-label-container,
+    .stack-info-container{
+        display: flex;
+        flex: 1 1;
+        justify-content: center;
+    }
+
+    .stack-label-container h3{
+        font-family: #{$fBauhausRegular};
+        font-size: 24px;
+    }
+
+    .stack-info-container{
+        flex: 3 1;
+        justify-content: space-around;
+
+        img{
+            max-height: 70px;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .project-desc-container{
+        flex-direction: column;
+
+        .project-photo{
+            order: 0;
+            justify-content: center;
+            img{
+                max-height: 100% !important;
+            }
+        }
+
+        .project-information{
+            order: 1;
+            flex-direction: column !important;
+
+            .project-name{
+                justify-content: center;
+                img{
+                    position: initial !important;
+                    padding-top: 20px;
+                }
+            }
+
+            .description{
+                order: 1;
+            }
+        }
+    }
+
+    .project-stack-container{
+        order: 2;
+    }
+
+    .detail-wrapper .project-navigation{
+        order: 3;
+        padding-bottom: 0 !important;
+        .navigation-buttons{
+            width: 100%;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+    }
+}
