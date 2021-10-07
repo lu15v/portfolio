@@ -35,23 +35,17 @@ const ProjectDetail = () =>{
                     <div className="description">
                         <div className="project-name">
                             {loading ? (
-                                <SkeletonLoading items={1}>
-                                    <div style={{height: '100px', width: '170px'}}></div>
-                                </SkeletonLoading>
+                                <SkeletonLoading styles={{height: '90px', width: '170px'}}/>
                             ) :
                             <img className={animationClass} src="https://images.squarespace-cdn.com/content/v1/57a7de94197aeac98f8e77fc/1582042951077-CAQIV4MFBCM7TFL0B2Y8/StartUp.png" alt="project name"/>}
                         </div>
                         {loading ? (
                             <>
-                            <br/>
-                            <SkeletonLoading items={1}>
-                            <div style={{height: '10px', width: '30px'}}></div>
-                            </SkeletonLoading>
-                            <br/>
-                            <SkeletonLoading items={1}>
-                                <div style={{height: '100px', width: '500px'}}></div>
-                            </SkeletonLoading>
-                        </>
+                                <br/>
+                                <SkeletonLoading styles={{height: '10px', width: '250px'}}/>
+                                <br/>
+                                <SkeletonLoading styles={{height: '100px', width: '550px'}}/>
+                            </>
                         ): (
                         <>
                             <p className={animationClass}>about the project</p>
@@ -65,9 +59,7 @@ const ProjectDetail = () =>{
                     </div>
                     <div className="project-photo">
                         {loading ? (
-                            <SkeletonLoading items={1}>
-                                <div style={{height: '100px', width: '500px'}}></div>
-                            </SkeletonLoading>
+                            <SkeletonLoading styles={{height: '300px', width: '500px'}}/>
                         ):(
                             <img className={animationClass} src={Webtry} alt="webtry" />
                         )
@@ -77,9 +69,7 @@ const ProjectDetail = () =>{
                 <div className="project-navigation">
                     <div className="navigation-buttons">
                         {loading ? (
-                            <SkeletonLoading items={3}>
-                                <div style={{height: '60px', width: '60px'}}></div>
-                            </SkeletonLoading>
+                            <SkeletonLoading items={3} styles={{height: '65px', width: '75px'}}/>
                         ):(
                             <>
                             <img className={animationClass} src={before} id="Before" alt="Before" onClick={prevProject}/>
@@ -93,15 +83,16 @@ const ProjectDetail = () =>{
             </div>
             <div className="project-stack-container">
                 <div className="stack-label-container">
-                    {!loading && 
+                    {loading ? (
+                        <SkeletonLoading styles={{height: '30px', width: '70px'}}/>
+                    ) : 
                         <h3 className={animationClass}>Stack</h3>
                     }
                 </div>
+                {loading && <br/>}
                 <div className="stack-info-container">
                     {loading ? (
-                        <SkeletonLoading items={5}>
-                            <div style={{height: '70px', width: '70px'}}></div>
-                        </SkeletonLoading>
+                        <SkeletonLoading items={5} styles={{height: '70px', width: '70px'}} />
                     ):(
                         <>
                             <img className={animationClass} src={react} alt="react" title="react"/>
@@ -111,7 +102,6 @@ const ProjectDetail = () =>{
                             <img className={animationClass} src={react} alt="react" title="react"/>
                         </>
                     )
-
                     }
                 </div>
             </div>

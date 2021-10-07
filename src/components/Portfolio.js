@@ -45,7 +45,7 @@ const Portfolio = () =>{
                     </SkeletonLoading>
                 </div>
                 <div className="load-more-wrapper">
-                    <SkeletonLoading items={1}>
+                    <SkeletonLoading>
                         {loadMoreButton("", )}
                     </SkeletonLoading>
                 </div>
