@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 div.about-content{
     // display: grid;
     // grid-template-columns: 2fr 1fr;
@@ -16,8 +18,75 @@ div.about-information{
     text-align: justify;
     flex: 3 1;
 
+    h3{
+        font-family: #{$fBauhausRegular};
+        font-size: 20px;
+    }
+    
     p{
         margin-block-start: 0;
+        font-family: #{$fExpletus};
+        font-size: 18px;
+        color: #333333;
+        &.show{
+            opacity: 0;
+            animation: showingDown .8s linear .1s 1 normal forwards;
+        }
+    }
+
+    div.name-wrapper{
+        display: flex;
+        justify-content: center;
+
+        p.name{
+            font-family: #{$fBauhausRegular};
+            font-size: 40px;
+    
+            span{
+                color: #{$bordeux}
+            }
+            &.show{
+                opacity: 0;
+                animation: showingDown .8s linear .1s 1 normal forwards;
+            }
+        }
+    }
+
+
+    p.greeting{
+        font-family: #{$fBauhausRegular};
+        font-size: 20px;
+        span.emoji{
+            font-size: 40px;
+        }
+    }
+
+    div.resume-container{
+        display: flex;
+        justify-content: center;
+
+        a{
+            cursor: pointer;
+            background-color: #{$bordeux};
+            color: #{$white};
+            font-family: #{$fExpletus};
+            height: 40px;
+            width: 100px;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+
+            &.show{
+                opacity: 0;
+                animation: showingDown .8s linear .2s 1 normal forwards;
+            }
+
+            &.show:hover{
+                opacity: 0.8 !important;
+            }
+        }
     }
 }
 
@@ -32,6 +101,10 @@ div.about-photo{
         object-fit: cover;
         max-width:100%;
         max-height:100%;
+        
+        &.show{
+            animation: showingDown .8s linear 0s 1 normal forwards;
+        }
     }
 }
 
@@ -49,8 +122,55 @@ div.about-photo{
     }
 }
 
+
+
+.animated-text {
+    /*font-family: monospace;*/
+    overflow: hidden;
+    height: 1.4em;
+    // width: 10.4ch;
+    text-align: justify;
+    word-wrap: break-word;
+    white-space: nowrap;
+    animation: typing 4s steps(15) forwards;
+    display: inline-block;
+    border-right: .40em solid orange; /* The typwriter cursor */
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    animation: 
+        typing 2s steps(30, end),
+        blink-caret 1.0s step-end infinite;
+
+    margin-bottom: 0;
+    
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 12.4ch;
+    }
+  }
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #{$bordeux} }
+}
+
 @media screen and (min-width: 769px) and (max-width: 1200px){
     div.about-photo{
         flex: 3 1;
+    }
+}
+
+@keyframes showingDown {
+    from{
+        opacity: 0;
+        transform: translate(0, -20px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0, 0);
     }
 }
