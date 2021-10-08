@@ -85,7 +85,7 @@ const ProjectDetail = () =>{
                 <div className="stack-label-container">
                     {loading ? (
                         <SkeletonLoading styles={{height: '30px', width: '70px'}}/>
-                    ) : 
+                    ) :
                         <h3 className={animationClass}>Stack</h3>
                     }
                 </div>
