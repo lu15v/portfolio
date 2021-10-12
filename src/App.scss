@@ -22,6 +22,7 @@ div {
 }
 
 @media screen and (max-width: 768px){
+    .menu-grid-container,
     .header-wrapper,
     .detail-wrapper,
     .site-header,
@@ -33,6 +34,7 @@ div {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1366px){
+    .menu-grid-container,
     .header-wrapper,
     .detail-wrapper,
     .site-header,
@@ -44,6 +46,7 @@ div {
 }
 
 @media screen and (min-width: 1367px){
+    .menu-grid-container,
     .header-wrapper,
     .detail-wrapper,
     .portfolio-items,
