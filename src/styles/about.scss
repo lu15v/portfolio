@@ -106,6 +106,14 @@ div.about-photo{
             animation: showingDown .8s linear 0s 1 normal forwards;
         }
     }
+
+    p.photo-label{
+        justify-content: center;
+        font-family: #{$fBauhausRegular};
+        span{
+            color: #{$bordeux};
+        }
+    }
 }
 
 @media screen and (max-width: 768px){
@@ -127,7 +135,7 @@ div.about-photo{
 .animated-text {
     /*font-family: monospace;*/
     overflow: hidden;
-    height: 1.4em;
+    height: 1.2em;
     // width: 10.4ch;
     text-align: justify;
     word-wrap: break-word;
