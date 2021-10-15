@@ -32,9 +32,7 @@ const HoverContent = ({name, linkTo, url, history}) =>{
     return(
         <div className={isHovering ? "hover-wrapper showUp" : "hover-wrapper" } onClick={() => handleOnClick(linkTo, url)} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
             <div className="hover-info-container">
-                <div className="description">
-                    <p>{name}</p>
-                </div>
+                <h3>{name}</h3>
             </div>
         </div>
     )
