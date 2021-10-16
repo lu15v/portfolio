@@ -18,8 +18,21 @@ div.about-information{
     flex: 3 1;
 
     h3{
-        font-family: #{$fBauhausRegular};
-        font-size: 20px;
+        font-family: #{$fExpletus};
+        font-size: 19px;
+        font-style: italic;
+        color: #454242;
+        font-weight: normal;
+        padding-top: 20px;
+
+        &[class^=show]{
+            opacity: 0;
+            animation: showingDown .8s linear  1 normal forwards;
+        }
+        &[class^=hide]{
+            opacity: 0;
+            animation: showingDown .8s linear  1 normal forwards;
+        }
     }
     
     p{
