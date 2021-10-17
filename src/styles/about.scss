@@ -10,6 +10,10 @@ div.about-content{
     overflow-y: auto;
 }
 
+hr.show{
+    animation: showingDown .8s linear 0s 1 normal forwards;
+}
+
 div.about-information{
     // margin: 1px solid black;
     // grid-row: span 2;
@@ -125,6 +129,36 @@ div.about-photo{
         span{
             color: #{$bordeux};
         }
+
+        &.show{
+            animation: showingDown .8s linear 0s 1 normal forwards;
+        }
+    }
+}
+
+div.small-gallery-container{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+
+    img{
+        width: 30%;
+        height: 30%;
+        object-fit: cover;
+        overflow: hidden;
+        opacity: 0;
+
+        &[id='first-photo'].show{
+            animation: showingDown .8s linear .4s 1 normal forwards;
+        }
+
+        &[id='second-photo'].show{
+            animation: showingDown .8s linear .2s 1 normal forwards;
+        }
+
+        &[id='third-photo'].show{
+            animation: showingDown .8s linear .1s 1 normal forwards;
+        }
     }
 }
 
@@ -141,8 +175,6 @@ div.about-photo{
         order: 0;
     }
 }
-
-
 
 .animated-text {
     /*font-family: monospace;*/
