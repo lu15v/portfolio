@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
+import uniqid from 'uniqid';
 
 import Me from '../assets/me.jpg';
 import aboutP1 from '../assets/about-photo-1.JPG';
-import aboutP2 from '../assets/about-photo-2.JPG';
+import aboutP2 from '../assets/about-photo-2.jpg';
 import aboutP3 from '../assets/about-photo-3.JPG';
 
 import '../styles/about.scss';
@@ -60,6 +61,34 @@ const About = () =>{
             <img className="show" id="first-photo" src={aboutP1} alt="Mexico city"/>
             <img className="show" id="second-photo" src={aboutP2} alt="Old friends"/>
             <img className="show" id="third-photo" src={aboutP3} alt="GDL friends"/>
+        </div>
+        <hr className="show" />
+        <h3 className="inspiration-label"><span>S</span>ome of my <span>i</span>nspiration</h3>
+        <div className="inspiration-gallery-container">
+            <div className="i_frame_wrapper">
+                <iframe id={uniqid()} src="https://www.youtube.com/embed/xrhNIU-BLZw" title="Apples design philosophy">
+                </iframe>
+            </div>
+            <div className="i_frame_wrapper">
+                <iframe id={uniqid()} src="https://www.youtube.com/embed/CGzKnyhYDQI" title="Loving Vincent">
+                </iframe>
+            </div>
+            <div className="i_frame_wrapper">
+                <iframe id={uniqid()} src="https://www.youtube.com/embed/qPNiIeKMHyg" title="The Last of Us 2">
+                </iframe>
+            </div>
+            <div className="i_frame_wrapper next-row">
+                <iframe id={uniqid()} src="https://www.youtube.com/embed/kaSvGVhtszo" title="Abstract: Tinker">
+                </iframe>
+            </div>
+            <div className="i_frame_wrapper next-row">
+                <iframe id={uniqid()} src="https://www.youtube.com/embed/Cj307YFAB88" title="Never give up">
+                </iframe>
+            </div>
+            <div className="i_frame_wrapper next-row">
+                <iframe id={uniqid()} src="https://www.youtube.com/embed/emZ631PdDb0" title="Bauhaus">
+                </iframe>
+            </div>
         </div>
         </>
     )
