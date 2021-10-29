@@ -7,7 +7,7 @@ header.site-header{
     justify-content: center;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 998;
     background: #{$white};
 }
 
@@ -28,6 +28,9 @@ div.header-wrapper .header-content{
     .navbar-wrapper{
         width: 50%;
         text-align: end;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
     a{
@@ -69,6 +72,11 @@ div.header-wrapper .header-content{
     img.logo:hover{
         cursor: pointer;
         opacity: 0.8;
+    }
+    
+    img.menu{
+        max-height: 46px;
+        cursor: pointer;
     }
 
     a::first-letter{

@@ -1,0 +1,54 @@
+@import './variables.scss';
+
+div.burgerMenu-wrapper{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+
+    img#close{
+        height: 30px;
+        margin: 50px 40px 60px;
+        align-self: flex-end;
+        opacity: 0;
+        animation: showingDown .5s linear 0s 1 normal forwards;
+        cursor: pointer;
+    }
+
+    a{
+        text-decoration: none;
+        color: #{$white};
+        font-family: #{$fExpletus};
+        font-size: 35px;
+        padding-top: 15px;
+        opacity: 0;
+    }
+
+    a::first-letter{
+        color: #{$bordeux};
+    }
+
+    a#about{
+        animation: showingDown .5s linear .3s 1 normal forwards;
+    }
+    a#contact{
+        animation: showingDown .5s linear .5s 1 normal forwards;
+    }
+    a#resume{
+        animation: showingDown .5s linear .7s 1 normal forwards;
+    }
+}
+
+@keyframes showingDown {
+    from{
+        opacity: 0;
+        transform: translate(0, -20px);
+    }
+    to{
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
