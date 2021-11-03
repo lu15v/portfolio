@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/skeletonLoading.scss';
+import uniqid from 'uniqid';
 
+import '../styles/skeletonLoading.scss';
 
 const SkeletonLoading = (props) =>{
     const {children, items = 1, styles = {}} = props;
@@ -8,9 +9,9 @@ const SkeletonLoading = (props) =>{
     return(
         <>
             {
-                [...Array(items)].map((value, index) =>{
+                [...Array(items)].map(value =>{
                 return(
-                    <div key={index} className={"skeleton"} style={styles}>
+                    <div key={uniqid()} className={"skeleton"} style={styles}>
                         {children}
                     </div>)
                 })

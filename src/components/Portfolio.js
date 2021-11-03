@@ -1,8 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Project from './Project';
 import SkeletonLoading from './SkeletonLoading';
-import '../styles/portfolio.scss';
 import { withRouter } from 'react-router';
+import { useQuery } from "@apollo/react-hooks";
+import {GET_PROJECTS} from "../util/fetch";
+import uniqid from 'uniqid';
+
+import '../styles/portfolio.scss';
 
 
 const loadMoreButton = (message, callback) =>{
@@ -11,45 +15,65 @@ const loadMoreButton = (message, callback) =>{
     )
 }
 
-
 const Portfolio = () =>{
-    const [loading, setLoading] = useState(false);
+
+    // const [getProjects, {loading, data}] = useLazyQuery(GET_N_PROJECTS_GEN_DESC,{
+    //     variables: {first: 12, next: 0}
+    // });
+    const {loading, data} = useQuery(GET_PROJECTS);
 
 
-    const handleClick = () =>{
-        console.log("handleClick")
-    }
+    // useEffect(() =>{
+    //     getProjects();
+    //     console.log(loading, data)
+    //     if(!loading && data){
+    //         const {getNProjects} = data;
+    //         console.log("wtf!!!! ", getNProjects)
+    //         setProjects(getNProjects);
+    //     }
+    // },[])
+
+    // const handleClick = () =>{
+    //     console.log("handleClick")
+    // }
 
     return(
-        !loading ?(
-        <>
-        <div className="portfolio-items">
-                <Project name="webtry backend"/>
-                <Project/>
-                <Project/>
-                <Project/>
-                <Project/>
-                <Project/>
-                <Project/>
-                <Project/>
+        !loading && data && data.getProjects ?(
+        // <>
+        // <div className="portfolio-items">
+        //         {projects && projects.map(project =>{
+        //             return(<Project name={project.name} key={uniqid()} background={`https://${project.coverPagePicture}`}/>)
+        //         })
+        //         }
+        //     </div>
+        //     <div className="load-more-wrapper">
+        //         {loadMoreButton("Load More", handleClick)}
+        //     </div>
+        //     </>
+            <div className="portfolio-items">
+                {data.getProjects.map(project =>{
+                    return(<Project name={project.name} key={uniqid()} background={`https://${project.coverPagePicture}`}/>)
+                })
+                }
             </div>
-            <div className="load-more-wrapper">
-                {loadMoreButton("Load More", handleClick)}
-            </div>
-            </>
             ):
-            <>
-                <div className="portfolio-items">
-                    <SkeletonLoading items={8}>
-                        <Project isSkeleton={true}/>
-                    </SkeletonLoading>
-                </div>
-                <div className="load-more-wrapper">
-                    <SkeletonLoading>
-                        {loadMoreButton("", )}
-                    </SkeletonLoading>
-                </div>
-            </>
+            <div className="portfolio-items">
+                <SkeletonLoading items={15}>
+                    <Project isSkeleton={true}/>
+                </SkeletonLoading>
+            </div>
+            // <>
+            //     <div className="portfolio-items">
+            //         <SkeletonLoading items={12}>
+            //             <Project isSkeleton={true}/>
+            //         </SkeletonLoading>
+            //     </div>
+            //     <div className="load-more-wrapper">
+            //         <SkeletonLoading>
+            //             {loadMoreButton("", )}
+            //         </SkeletonLoading>
+            //     </div>
+            // </>
     )
 
 }

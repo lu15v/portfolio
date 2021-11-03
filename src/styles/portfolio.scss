@@ -4,7 +4,7 @@ div.portfolio-items{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
     grid-gap: 10px;
-    grid-auto-rows: minmax(300px, auto);
+    grid-auto-rows: minmax(200px, auto);
     justify-content: center;
 }
 
