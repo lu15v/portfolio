@@ -3,6 +3,7 @@ import { GET_PROJECT } from '../util/fetch';
 import { useLazyQuery } from '@apollo/client';
 import SkeletonLoading from './SkeletonLoading';
 import uniqid from 'uniqid';
+import { Redirect } from 'react-router';
 
 import play from '../assets/play.png';
 import next from '../assets/next.png';
@@ -12,7 +13,7 @@ import '../styles/projectDetail.scss';
 
 const ProjectDetail = ({history}) =>{
 
-    const [getProject, {loading, data}] = useLazyQuery(GET_PROJECT);
+    const [getProject, {loading, error, data}] = useLazyQuery(GET_PROJECT);
 
     const handleFollowingProject = (projectName) =>{
         history.push(`/${projectName}`)
@@ -24,6 +25,13 @@ const ProjectDetail = ({history}) =>{
         });
     }, [history.location.pathname.substring(1)])
     
+    if(error){
+        return <Redirect to={{
+            pathname: '/not_found',
+            state: { code: 404, message: "The project was not found or a problem occurred when trying to load it. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
+        }}
+        />
+    }
     return(
         <div className="detail-wrapper">
             <div className="project-desc-container">
@@ -80,13 +88,13 @@ const ProjectDetail = ({history}) =>{
             </div>
             <div className="project-stack-container">
                 <div className="stack-label-container">
-                    {loading ? (
-                        <SkeletonLoading styles={{height: '30px', width: '70px'}}/>
-                    ) :
+                    {!loading  && data && data.getProject ? (
                         <h3 className="show">Stack</h3>
+                    ) :
+                        <SkeletonLoading styles={{height: '30px', width: '70px'}}/>
                     }
                 </div>
-                {loading && <br/>}
+                <br/>
                 <div className="stack-info-container">
                     {!loading  && data && data.getProject ? (
                         <>
