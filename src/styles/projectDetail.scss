@@ -39,7 +39,7 @@
             img{
                 position: absolute;
                 left: 0;
-                object-fit: cover;
+                object-fit: contain;
                 max-width:100%;
                 max-height:100%;
                 &.show{
@@ -215,6 +215,19 @@
 @media screen and (max-width: 500px){
     .stack-label-container{
         padding-right: 14px !important;
+    }
+    
+    .stack-info-container{
+        img{
+            max-height: 35px !important;
+        }
+    }
+
+    .detail-wrapper .project-navigation{
+        .navigation-buttons img{
+            width: 40px;
+            height: 40px;
+        }
     }
 }
 

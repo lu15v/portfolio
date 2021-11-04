@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React,{useEffect} from 'react';
 import { GET_PROJECT } from '../util/fetch';
 import { useLazyQuery } from '@apollo/client';
 import SkeletonLoading from './SkeletonLoading';
@@ -11,7 +11,6 @@ import before from '../assets/before.png';
 import '../styles/projectDetail.scss';
 
 const ProjectDetail = ({history}) =>{
-    const [animationClass, setAnimationClass] = useState('show');
 
     const [getProject, {loading, data}] = useLazyQuery(GET_PROJECT);
 
@@ -32,14 +31,14 @@ const ProjectDetail = ({history}) =>{
                     <div className="description">
                         <div className="project-name">
                             {!loading  && data && data.getProject ? (
-                                <img className={animationClass} src={`https://${data.getProject.pictureName}`} alt="project name"/>
+                                <img className="show" src={`https://${data.getProject.pictureName}`} alt="project name"/>
                             ) :
                             <SkeletonLoading styles={{height: '90px', width: '170px'}}/>}
                         </div>
                         {!loading  && data && data.getProject  ? (
                         <>
-                            <p className={animationClass}>about the project</p>
-                            <article className={animationClass}>
+                            <p className="show">about the project</p>
+                            <article className="show">
                             {data.getProject.description}
                             </article>
                         </>
@@ -56,7 +55,7 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className={animationClass} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} />
+                            <img className="show" src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} />
 
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>
@@ -68,9 +67,9 @@ const ProjectDetail = ({history}) =>{
                     <div className="navigation-buttons">
                         {!loading  && data && data.getProject  ? (
                             <>
-                            <img className={animationClass} src={before} id="Before" alt="Before" onClick={() => handleFollowingProject(data.getProject.prevProject)}/>
-                            <a href={data.getProject.demo} rel="noopener noreferrer nofollow" target="_blank"><img className={animationClass} src={play} id="Play" alt="Play"/></a>
-                            <img className={animationClass} src={next} id="Next" alt="Next" onClick={() => handleFollowingProject(data.getProject.nextProject)}/>
+                            <img className="show" src={before} id="Before" alt="Before" onClick={() => handleFollowingProject(data.getProject.prevProject)}/>
+                            <a href={data.getProject.demo} rel="noopener noreferrer nofollow" target="_blank"><img className="show" src={play} id="Play" alt="Play"/></a>
+                            <img className="show" src={next} id="Next" alt="Next" onClick={() => handleFollowingProject(data.getProject.nextProject)}/>
                             </>
                         ):(
                             <SkeletonLoading items={3} styles={{height: '65px', width: '75px'}}/>
@@ -84,7 +83,7 @@ const ProjectDetail = ({history}) =>{
                     {loading ? (
                         <SkeletonLoading styles={{height: '30px', width: '70px'}}/>
                     ) :
-                        <h3 className={animationClass}>Stack</h3>
+                        <h3 className="show">Stack</h3>
                     }
                 </div>
                 {loading && <br/>}
@@ -92,7 +91,7 @@ const ProjectDetail = ({history}) =>{
                     {!loading  && data && data.getProject ? (
                         <>
                            {data.getProject.stack.map(tech => {
-                               return <img className={animationClass} key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
+                               return <img className="show" key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
                            })
                            }
                        </>
