@@ -198,7 +198,8 @@
         flex: 3 1;
         justify-content: space-around;
 
-        img{
+        img,
+        img.rectangle{
             max-height: 70px;
 
             &.show{
@@ -208,6 +209,11 @@
             &.remove{
                 animation: remove .5s linear 0s 1 normal forwards;
             }
+        }
+
+        img.rectangle{
+            max-height: 35px;
+            margin-top: 15px;
         }
     }
 }

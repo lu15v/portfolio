@@ -91,7 +91,7 @@ const ProjectDetail = ({history}) =>{
                     {!loading  && data && data.getProject ? (
                         <>
                            {data.getProject.stack.map(tech => {
-                               return <img className="show" key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
+                               return <img className={tech.name === 'MacOS' || tech.name === "Love" ? "rectangle show" :"show"} key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
                            })
                            }
                        </>
