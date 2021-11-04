@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { GET_PROJECT } from '../util/fetch';
 import { useLazyQuery } from '@apollo/client';
 import SkeletonLoading from './SkeletonLoading';
+import uniqid from 'uniqid';
 
 import play from '../assets/play.png';
 import next from '../assets/next.png';
@@ -55,7 +56,7 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className={animationClass} src={`https://${data.getProject.mainPicture}`} alt="webtry" />
+                            <img className={animationClass} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} />
 
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>
@@ -68,7 +69,7 @@ const ProjectDetail = ({history}) =>{
                         {!loading  && data && data.getProject  ? (
                             <>
                             <img className={animationClass} src={before} id="Before" alt="Before" onClick={() => handleFollowingProject(data.getProject.prevProject)}/>
-                            <img className={animationClass} src={play} id="Play" alt="Play"/>
+                            <a href={data.getProject.demo} rel="noopener noreferrer nofollow" target="_blank"><img className={animationClass} src={play} id="Play" alt="Play"/></a>
                             <img className={animationClass} src={next} id="Next" alt="Next" onClick={() => handleFollowingProject(data.getProject.nextProject)}/>
                             </>
                         ):(
@@ -91,7 +92,7 @@ const ProjectDetail = ({history}) =>{
                     {!loading  && data && data.getProject ? (
                         <>
                            {data.getProject.stack.map(tech => {
-                               return <img className={animationClass} src={tech.logo} alt={tech.name} title={tech.name}/>
+                               return <img className={animationClass} key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
                            })
                            }
                        </>
