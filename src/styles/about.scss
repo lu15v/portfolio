@@ -160,6 +160,11 @@ div.inspiration-gallery-container{
         iframe {
             height: 100%;
             width: 100%;
+
+            &.show{
+                opacity: 0;
+                animation: showingDown .8s linear 1s 1 normal forwards;
+            }
          }
 
          &.next-row{

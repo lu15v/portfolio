@@ -9,6 +9,7 @@ header.site-header{
     top: 0;
     z-index: 998;
     background: #{$white};
+    opacity: 0.9;
 }
 
 header div.header-wrapper{
@@ -66,7 +67,7 @@ div.header-wrapper .header-content{
     }
 
     img.logo{
-        max-height: 95px;
+        max-height: 60px;
     }
 
     img.logo:hover{
@@ -75,7 +76,7 @@ div.header-wrapper .header-content{
     }
     
     img.menu{
-        max-height: 46px;
+        max-height: 35px;
         cursor: pointer;
     }
 

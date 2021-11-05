@@ -5,6 +5,7 @@ import Me from '../assets/me.jpg';
 import aboutP1 from '../assets/about-photo-1.JPG';
 import aboutP2 from '../assets/about-photo-2.jpg';
 import aboutP3 from '../assets/about-photo-3.JPG';
+import Mex from '../assets/icons/mex-icon-32.png';
 
 import '../styles/about.scss';
 
@@ -38,7 +39,7 @@ const About = () =>{
                 <div className="name-wrapper">
                     <p className="name animated-text"><span>{"<"}</span><span>L</span>uis_<span>B</span>allinas<span>{">"}</span></p>
                 </div>
-                <p className="greeting show">Hola <span className="emoji">👋</span></p>
+                <p className="greeting show"><img className=""  src={Mex} alt="Mexico"/> Hola <span className="emoji">👋</span></p>
                 <p className="show">I’m a UI developer with a passion for creating interfaces that will ease people's lives around the world.</p>
                 <p className="show">I love to: contribute, learn, teach and in general be very engaged in every project I'm in, providing the highest possible quality in every development.</p>
                 <p className="show">In my free time, I enjoy: learning topics related to web development, playing the ukulele, watching series, writing, reading novels, playing video games and developing custom personal websites.</p>
@@ -66,27 +67,27 @@ const About = () =>{
         <h3 className="inspiration-label"><span>S</span>ome of my <span>i</span>nspiration</h3>
         <div className="inspiration-gallery-container">
             <div className="i_frame_wrapper">
-                <iframe id={uniqid()} src="https://www.youtube.com/embed/xrhNIU-BLZw" title="Apples design philosophy">
+                <iframe id={uniqid()} className="show" src="https://www.youtube.com/embed/Cj307YFAB88" title="Never give up">
                 </iframe>
             </div>
             <div className="i_frame_wrapper">
-                <iframe id={uniqid()} src="https://www.youtube.com/embed/CGzKnyhYDQI" title="Loving Vincent">
+                <iframe id={uniqid()} className="show" src="https://www.youtube.com/embed/CGzKnyhYDQI" title="Loving Vincent">
                 </iframe>
             </div>
             <div className="i_frame_wrapper">
-                <iframe id={uniqid()} src="https://www.youtube.com/embed/qPNiIeKMHyg" title="The Last of Us 2">
+                <iframe id={uniqid()} className="show" src="https://www.youtube.com/embed/xrhNIU-BLZw" title="Apples design philosophy">
                 </iframe>
             </div>
             <div className="i_frame_wrapper next-row">
-                <iframe id={uniqid()} src="https://www.youtube.com/embed/kaSvGVhtszo" title="Abstract: Tinker">
+                <iframe id={uniqid()} className="show" src="https://www.youtube.com/embed/kaSvGVhtszo" title="Abstract: Tinker">
                 </iframe>
             </div>
             <div className="i_frame_wrapper next-row">
-                <iframe id={uniqid()} src="https://www.youtube.com/embed/Cj307YFAB88" title="Never give up">
+                <iframe id={uniqid()} className="show" src="https://www.youtube.com/embed/qPNiIeKMHyg" title="The Last of Us 2">
                 </iframe>
             </div>
             <div className="i_frame_wrapper next-row">
-                <iframe id={uniqid()} src="https://www.youtube.com/embed/emZ631PdDb0" title="Bauhaus">
+                <iframe id={uniqid()} className="show" src="https://www.youtube.com/embed/emZ631PdDb0" title="Bauhaus">
                 </iframe>
             </div>
         </div>
