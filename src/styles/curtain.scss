@@ -8,7 +8,7 @@ $assetPath:"../assets/";
 }
 .main-background::before{
     content: '';
-    background-image: url(#{$assetPath}/curtain-background.jpeg);
+    background-image: url(#{$assetPath}/curtain-background.png);
     // background: linear-gradient(45deg, rgb(134, 0, 41), rgb(0, 5, 5));
     // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(0, 5, 5), rgb(255, 255, 255));
     // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(134, 0, 41));
@@ -22,7 +22,8 @@ $assetPath:"../assets/";
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.5;
+    opacity: 0.4;
+    background-position: center;
 }
 
 div.curtain-content-wrapper{
