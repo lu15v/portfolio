@@ -26,12 +26,20 @@ const ProjectDetail = ({history}) =>{
     }, [history.location.pathname.substring(1)])
     
     if(error){
+        if(error.networkError){
+            return <Redirect to={{
+                        pathname: '/not_found',
+                        state: { code: error.networkError.response.status, message: "a Problem occurred when trying to load this project. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
+                    }}
+                    />
+        }
         return <Redirect to={{
             pathname: '/not_found',
-            state: { code: 404, message: "The project was not found or a problem occurred when trying to load it. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
+            state: { code: 404, message: "The project was not found. Please try with a valid one. If the problem persists, check my old portfolio, in the Contact window." }
         }}
         />
     }
+    
     return(
         <div className="detail-wrapper">
             <div className="project-desc-container">

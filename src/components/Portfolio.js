@@ -1,7 +1,7 @@
 import React from 'react';
 import Project from './Project';
 import SkeletonLoading from './SkeletonLoading';
-import { withRouter } from 'react-router';
+import { withRouter, Redirect } from 'react-router';
 import { useQuery } from "@apollo/react-hooks";
 import {GET_PROJECTS} from "../util/fetch";
 import uniqid from 'uniqid';
@@ -20,8 +20,24 @@ const Portfolio = () =>{
     // const [getProjects, {loading, data}] = useLazyQuery(GET_N_PROJECTS_GEN_DESC,{
     //     variables: {first: 12, next: 0}
     // });
-    const {loading, data} = useQuery(GET_PROJECTS);
+    const {loading, error, data} = useQuery(GET_PROJECTS);
 
+
+    if(error){
+        if(error.networkError){
+            return <Redirect to={{
+                        pathname: '/not_found',
+                        state: { code: error.networkError.response.status, message: "A network connection or server error ocurred when fetching the projects. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
+                    }}
+                    />
+        }
+        return <Redirect to={{
+            pathname: '/not_found',
+            state: { code: 404, message: "An error ocurred when fetching the projects. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
+        }}
+        />
+    }
+    
 
     // useEffect(() =>{
     //     getProjects();
