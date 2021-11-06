@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { withRouter } from 'react-router';
 import '../styles/project.scss';
 
-const Project = ({name, background, history, isSkeleton}) =>{
+const Project = ({name, background, history, isSkeleton, projectN}) =>{
     const [isHovering, setIsHovering] = useState();
 
     const validName = name || 'Unknown';
@@ -16,7 +16,7 @@ const Project = ({name, background, history, isSkeleton}) =>{
     };
 
     const handleOnClick = () =>{
-        history.push(`/${name}`)
+        history.push(`/${name}/${projectN}`)
     }
     
     return(

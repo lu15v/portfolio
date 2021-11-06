@@ -52,6 +52,11 @@ const Portfolio = () =>{
     // const handleClick = () =>{
     //     console.log("handleClick")
     // }
+    let totalProjects = 0;
+
+    if(!loading && data){
+        totalProjects = data.getProjects.length;
+    }
 
     return(
         !loading && data && data.getProjects ?(
@@ -67,8 +72,8 @@ const Portfolio = () =>{
         //     </div>
         //     </>
             <div className="portfolio-items">
-                {data.getProjects.map(project =>{
-                    return(<Project name={project.name} key={uniqid()} background={`https://${project.coverPagePicture}`}/>)
+                {data.getProjects.map((project, idx) =>{
+                    return(<Project name={project.name} key={uniqid()} projectN={`${idx + 1}_${totalProjects}`} background={`https://${project.coverPagePicture}`}/>)
                 })
                 }
             </div>

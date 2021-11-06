@@ -27,7 +27,7 @@ const PageWrapper = () =>{
                                 <Route exact path='/about' component={About} />
                                 <Route exact path='/resume' component={Resume} />
                                 <Route path='/not_found' component={NotFound} />
-                                <Route path='/:item' component={ProjectDetail} />
+                                <Route path='/:item/:range' component={ProjectDetail} />
                                 <Route component={NotFound} />
                             </Switch>
                     </main>
