@@ -34,7 +34,7 @@ const Header = ({history}) =>{
                             <>
                             <NavLink to="/about">{activePath === '/about' ? '{About}' : "About"}</NavLink>
                             <NavLink to="/contact">{activePath === '/contact' ? '{Contact}' : "Contact"}</NavLink>
-                            <NavLink to="/resume">{activePath === '/resume' ? '{Resume}' : "Resume"}</NavLink>
+                            {/* <NavLink to="/resume">{activePath === '/resume' ? '{Resume}' : "Resume"}</NavLink> */}
                             </>
                             ) :
                             <img id="menu"  className="menu" onClick={() => setDisplayMenu(true)} src={menu} alt="logo"/>}
