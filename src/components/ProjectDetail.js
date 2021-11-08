@@ -14,8 +14,7 @@ import before from '../assets/before.png';
 import '../styles/projectDetail.scss';
 
 const ProjectDetail = ({history}) =>{
-
-    const [getProject, {loading, error, data}] = useLazyQuery(GET_PROJECT);
+    const [getProject, {error,loading, data}] = useLazyQuery(GET_PROJECT);
 
     let { item, range } = useParams();
 
@@ -80,7 +79,9 @@ const ProjectDetail = ({history}) =>{
                             <br/>
                             <SkeletonLoading styles={{height: '10px'}}/>
                             <br/>
-                            <SkeletonLoading styles={{height: '100px'}}/>
+                            <div id="skeleton-article">
+                                <SkeletonLoading styles={{height: '100px'}}/>
+                            </div>
                         </>
                         )
                         }
@@ -97,7 +98,7 @@ const ProjectDetail = ({history}) =>{
                 </div>
                 <div className="project-navigation">
                     
-                    {!loading  && data && data.getProject ? <ProgressBar percentage={percentage}/> : <SkeletonLoading items={3} styles={{height: '2px', width: '100%'}}/>}
+                    {!loading  && data && data.getProject ? <ProgressBar percentage={percentage}/> : <SkeletonLoading items={1} styles={{height: '2px', width: '100%'}}/>}
                     <br/>
                     <div className="navigation-buttons">
                         {!loading  && data && data.getProject  ? (

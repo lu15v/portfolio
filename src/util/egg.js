@@ -1,9 +1,9 @@
 const egg =
 `
- /=\\
+ /==\\
 |****|
-\\===/
- '-'
+\\====/
+ '--'
 888888ba                    oo                                  dP    dP                dP   
 88     8b                                                       88    88                88
 88     88 .d8888b. .d8888b. dP .d8888b. 88d888b. .d8888b. .d888b88    88d888b. dP    dP     
@@ -21,10 +21,10 @@ oooooooooooooooooooooooooooooooo~~~~.88~oooooooooooooooooooooooooooooooooooooooo
     88888888P  88888P8 88     88888888P 88
    ooooooooooooooooooooooooooooooooooooooo
 
-                                         /@\\
+                                         /@@\\
                                         |@^^@|
-                                        \\^@^/
-                                          '-'
+                                        \\^@@^/
+                                         '--'
 `
 
 export default egg;

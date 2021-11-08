@@ -263,6 +263,10 @@
             img{
                 max-height: 100% !important;
             }
+
+            .skeleton{
+                height: 140px;
+            }
         }
 
         .project-information{
@@ -279,16 +283,36 @@
                         position: initial !important;
                         padding-top: 20px;
                     }
+
+                    .skeleton{
+                        width: 200px !important;
+                        margin-left: 10px;
+                    }
+                }
+
+                div#skeleton-article{
+                    height: 200px;
+                    .skeleton{
+                        height: 100% !important;
+                    }
                 }
             }
         }
+
+        .project-navigation .skeleton:first-child {
+            order: 0;
+            margin-left: 14px;
+        }
     }
 
-    .project-stack-container{
+    .project-stack-container,
+    .project-stack-container .skeleton{
         order: 2;
+        margin-left: 5px;
     }
 
-    .detail-wrapper .project-navigation{
+    .detail-wrapper .project-navigation,
+    .detail-wrapper .project-navigation .skeleton{
         order: 3;
         padding-bottom: 0 !important;
         .navigation-buttons{
