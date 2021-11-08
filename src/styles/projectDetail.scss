@@ -159,12 +159,19 @@
         &[id='Play'].show{
             animation: showingDown .5s linear .2s 1 normal forwards;
         }
+        &[id='NotPlay'].show{
+            animation: showingDown .5s linear .2s 1 normal forwards;
+            cursor: not-allowed;
+        }
         &[id='Next'].show{
             animation: showingDown .5s linear .1s 1 normal forwards;
         }
 
         &.show:hover{
             transform:scale(1.3) !important;
+        }
+        &[id='NotPlay'].show:hover{
+            transform: none !important;
         }
     }
 }

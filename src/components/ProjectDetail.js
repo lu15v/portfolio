@@ -7,6 +7,7 @@ import { Redirect, useParams } from 'react-router';
 import ProgressBar from './progressBar';
 
 import play from '../assets/play.png';
+import notPlay from '../assets/not_play.png';
 import next from '../assets/next.png';
 import before from '../assets/before.png';
 
@@ -54,7 +55,7 @@ const ProjectDetail = ({history}) =>{
         }}
         />
     }
-    
+
     return(
         <div className="detail-wrapper">
             <div className="project-desc-container">
@@ -102,7 +103,11 @@ const ProjectDetail = ({history}) =>{
                         {!loading  && data && data.getProject  ? (
                             <>
                                 <img className="show" src={before} id="Before" alt="Before" onClick={() => handleFollowingProject(data.getProject.prevProject,parseInt(idx) - 1, max)}/>
+                                {data.getProject.demo === '' ? 
+                                <img className="show" src={notPlay} id="NotPlay" alt="NotPlay"/>
+                                :
                                 <a href={data.getProject.demo} rel="noopener noreferrer nofollow" target="_blank"><img className="show" src={play} id="Play" alt="Play"/></a>
+                                }
                                 <img className="show" src={next} id="Next" alt="Next" onClick={() => handleFollowingProject(data.getProject.nextProject, parseInt(idx) + 1, max)}/>
                             </>
                         ):(
