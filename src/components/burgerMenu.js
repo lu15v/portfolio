@@ -12,7 +12,7 @@ const BurgerMenu = ({callback}) =>{
             
             <NavLink id="about" to="/about">About</NavLink>
             <NavLink id="contact" to="/contact">Contact</NavLink>
-            <NavLink id="resume" to="/resume">Resume</NavLink>
+            {/* <NavLink id="resume" to="/resume">Resume</NavLink> */}
         </div>
     )
 }
