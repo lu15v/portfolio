@@ -2,9 +2,9 @@ import React,{useState} from 'react';
 import uniqid from 'uniqid';
 
 import Me from '../assets/me.png';
-import aboutP1 from '../assets/about-photo-1.JPG';
-import aboutP2 from '../assets/about-photo-2.jpg';
-import aboutP3 from '../assets/about-photo-3.JPG';
+import aboutP1 from '../assets/about-photo-1.png';
+import aboutP2 from '../assets/about-photo-2.png';
+import aboutP3 from '../assets/about-photo-3.png';
 import Mex from '../assets/icons/mex-icon-32.png';
 
 import '../styles/about.scss';
