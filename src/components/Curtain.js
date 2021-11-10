@@ -92,7 +92,7 @@ const Curtain = ({history}) =>{
                     <span>{R}</span>
                 </div>
                 <div className="enter-to-site-container">
-                <a onClick={enterToSite}> Enter to the site</a>
+                <a onClick={enterToSite}> Click to enter</a>
             </div>
             </div>
         </div>
