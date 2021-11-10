@@ -16,7 +16,7 @@ const Project = ({name, background, history, isSkeleton, projectN}) =>{
     };
 
     const handleOnClick = () =>{
-        history.push(`/${name}/${projectN}`)
+        history.push(`/${name.replaceAll(" ", "_")}/${projectN}`)
     }
     
     return(

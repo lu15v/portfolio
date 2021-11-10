@@ -30,12 +30,12 @@ const ProjectDetail = ({history}) =>{
             idx = limit;
         }
 
-        history.push(`/${projectName}/${idx}_${limit}`)
+        history.push(`/${projectName.replaceAll(" ", "_")}/${idx}_${limit}`)
     }
 
     useEffect(() => {
         getProject({
-            variables: {name: item}
+            variables: {name: item.replaceAll("_", " ")}
         });
     }, [item])
     
