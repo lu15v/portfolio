@@ -127,6 +127,11 @@ div.about-photo{
     p.photo-label{
         justify-content: center;
         font-family: #{$fBauhausRegular};
+
+        img{
+            height: 30px;
+        }
+
         span{
             color: #{$bordeux};
         }
@@ -254,6 +259,9 @@ div.small-gallery-container{
 
     div.about-photo{
         order: 0;
+        p.photo-label img{
+            height: 20px;
+        }
     }
     div.inspiration-gallery-container,
     div.small-gallery-container{

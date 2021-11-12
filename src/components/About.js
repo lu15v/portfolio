@@ -7,6 +7,7 @@ import aboutP1 from '../assets/about-photo-1.png';
 import aboutP2 from '../assets/about-photo-2.png';
 import aboutP3 from '../assets/about-photo-3.png';
 import Mex from '../assets/icons/mex-icon-32.png';
+import Location from '../assets/icons/location.ico';
 
 import '../styles/about.scss';
 
@@ -64,7 +65,7 @@ const About = () =>{
             </div>
             <div className="about-photo">
                 <img className="show" src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)}/>
-                <p className="photo-label show"><span>S</span>omewhere in <span>R</span>edmond</p>
+                <p className="photo-label show"><img src={Location} alt="Location"/> <span>S</span>omewhere in <span>R</span>edmond</p>
             </div>
         </div>
         <hr className="show" />
