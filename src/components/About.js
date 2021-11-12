@@ -63,15 +63,15 @@ const About = () =>{
                 }
             </div>
             <div className="about-photo">
-                <img className="show" src={Me} alt="Me" onClick={() => handleZoom(true, Me)}/>
+                <img className="show" src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)}/>
                 <p className="photo-label show"><span>S</span>omewhere in <span>R</span>edmond</p>
             </div>
         </div>
         <hr className="show" />
         <div className="small-gallery-container">
-            <img className="show" id="first-photo" src={aboutP1} alt="Old friends" onClick={() => handleZoom(true, aboutP1)}/>
-            <img className="show" id="second-photo" src={aboutP2} alt="College friends" onClick={() => handleZoom(true, aboutP2)}/>
-            <img className="show" id="third-photo" src={aboutP3} alt="GDL friends" onClick={() => handleZoom(true, aboutP3)}/>
+            <img className="show" id="first-photo" src={aboutP1} alt="Old friends" title="Old friends" onClick={() => handleZoom(true, aboutP1)}/>
+            <img className="show" id="second-photo" src={aboutP2} alt="College friends" title="College friends" onClick={() => handleZoom(true, aboutP2)}/>
+            <img className="show" id="third-photo" src={aboutP3} alt="GDL friends"  title="GDL friends" onClick={() => handleZoom(true, aboutP3)}/>
         </div>
         <hr className="show" />
         <h3 className="inspiration-label"><span>S</span>ome of my <span>i</span>nspiration</h3>
