@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import uniqid from 'uniqid';
+import ZoomImage from './ZoomImage';
 
 import Me from '../assets/me.png';
 import aboutP1 from '../assets/about-photo-1.png';
@@ -23,6 +24,9 @@ const quotes = [`â€œThose who can imagine anything, can create the impossible.â€
 
 const About = () =>{
     const [quote, setQuote] = useState(0);
+    const [isZoomActive, setIsZoomActive] = useState(false);
+
+    const [pictureLink, setPictureLink] = useState('');
 
         setTimeout(() =>{
             if(quote === quotes.length - 1){
@@ -31,9 +35,15 @@ const About = () =>{
                 setQuote(quote + 1);
             }
         }, 5000)
+    
+    const handleZoom = (open, pictureLink = '') => {
+        setPictureLink(pictureLink);
+        setIsZoomActive(open);
+    }
 
     return(
         <>
+        {isZoomActive && <ZoomImage linkToPicture={pictureLink} handleClose={handleZoom}/>}
         <div className="about-content">
             <div className="about-information">
                 <div className="name-wrapper">
@@ -53,15 +63,15 @@ const About = () =>{
                 }
             </div>
             <div className="about-photo">
-                <img className="show" src={Me} alt="Me"/>
+                <img className="show" src={Me} alt="Me" onClick={() => handleZoom(true, Me)}/>
                 <p className="photo-label show"><span>S</span>omewhere in <span>R</span>edmond</p>
             </div>
         </div>
         <hr className="show" />
         <div className="small-gallery-container">
-            <img className="show" id="first-photo" src={aboutP1} alt="Mexico city"/>
-            <img className="show" id="second-photo" src={aboutP2} alt="Old friends"/>
-            <img className="show" id="third-photo" src={aboutP3} alt="GDL friends"/>
+            <img className="show" id="first-photo" src={aboutP1} alt="Old friends" onClick={() => handleZoom(true, aboutP1)}/>
+            <img className="show" id="second-photo" src={aboutP2} alt="College friends" onClick={() => handleZoom(true, aboutP2)}/>
+            <img className="show" id="third-photo" src={aboutP3} alt="GDL friends" onClick={() => handleZoom(true, aboutP3)}/>
         </div>
         <hr className="show" />
         <h3 className="inspiration-label"><span>S</span>ome of my <span>i</span>nspiration</h3>
