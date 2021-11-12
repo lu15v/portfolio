@@ -95,7 +95,7 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className="show" src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} onClick={zoomPicture}/>
+                            <img className="show" src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture}/>
 
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>
