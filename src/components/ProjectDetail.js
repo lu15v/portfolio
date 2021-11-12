@@ -1,10 +1,11 @@
-import React,{useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import { GET_PROJECT } from '../util/fetch';
 import { useLazyQuery } from '@apollo/client';
 import SkeletonLoading from './SkeletonLoading';
 import uniqid from 'uniqid';
 import { Redirect, useParams } from 'react-router';
 import ProgressBar from './progressBar';
+import ZoomImage from './ZoomImage';
 
 import play from '../assets/play.png';
 import notPlay from '../assets/not_play.png';
@@ -15,6 +16,7 @@ import '../styles/projectDetail.scss';
 
 const ProjectDetail = ({history}) =>{
     const [getProject, {error,loading, data}] = useLazyQuery(GET_PROJECT);
+    const [isZoomActive, setIsZoomActive] = useState(false);
 
     let { item, range } = useParams();
 
@@ -40,6 +42,10 @@ const ProjectDetail = ({history}) =>{
     }, [item])
     
 
+    const zoomPicture = () =>{
+        setIsZoomActive(true);
+    }
+
     if(error){
         if(error.networkError){
             return <Redirect to={{
@@ -57,6 +63,7 @@ const ProjectDetail = ({history}) =>{
 
     return(
         <div className="detail-wrapper">
+            {isZoomActive && data && data.getProject && <ZoomImage linkToPicture={`https://${data.getProject.mainPicture}`} handleClose={setIsZoomActive}/>}
             <div className="project-desc-container">
                 <div className="project-information">
                     <div className="description">
@@ -88,7 +95,7 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className="show" src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} />
+                            <img className="show" src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} onClick={zoomPicture}/>
 
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>

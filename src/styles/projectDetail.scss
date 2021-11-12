@@ -99,6 +99,7 @@
                 max-height:80%;
                 box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, .4);
                 margin: 0 auto;
+                cursor: pointer;
 
                 &.show{
                     animation: showingDown .5s linear 0s 1 normal forwards;
@@ -243,7 +244,7 @@
             padding-bottom: 4px;
         }
     }
-
+    
     .detail-wrapper .project-navigation{
         .navigation-buttons img{
             width: 40px;
