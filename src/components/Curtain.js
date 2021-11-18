@@ -53,6 +53,11 @@ const Curtain = ({history}) =>{
 
     const enterToSite = () =>{
         sessionStorage.setItem("curtain", true);
+
+        if(!localStorage.getItem("mode")){
+            localStorage.setItem("mode", 'light')
+        }
+        
         history.push('/');
     }
 

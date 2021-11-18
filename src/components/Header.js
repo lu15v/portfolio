@@ -10,6 +10,7 @@ const Header = ({history}) =>{
     const {pathname} = useLocation();
     const [activePath, setActivePath] = useState('');
     const [displayMenu, setDisplayMenu] = useState(false);
+    const [mode, setMode] = useState(localStorage.getItem('mode'));
 
     const { width} = useWindowDimensions()
 
@@ -20,8 +21,16 @@ const Header = ({history}) =>{
     useEffect(() => {
         setActivePath(pathname);
     }, [pathname])
-    
 
+    const handleClick = () =>{
+        if(mode === 'light'){
+            localStorage.setItem('mode', 'dark');
+        }else{
+            localStorage.setItem('mode', 'light');
+        }
+        setMode(localStorage.getItem('mode'));
+    }
+    
     return(
         <>
             {displayMenu && <BurgerMenu callback={setDisplayMenu}/>}
@@ -34,6 +43,7 @@ const Header = ({history}) =>{
                             <>
                             <NavLink to="/about">{activePath === '/about' ? '{About}' : "About"}</NavLink>
                             <NavLink to="/contact">{activePath === '/contact' ? '{Contact}' : "Contact"}</NavLink>
+                            <a onClick={handleClick}>Dark Mode</a>
                             {/* <NavLink to="/resume">{activePath === '/resume' ? '{Resume}' : "Resume"}</NavLink> */}
                             </>
                             ) :
