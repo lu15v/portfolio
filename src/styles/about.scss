@@ -25,7 +25,6 @@ div.about-information{
         font-family: #{$fExpletus};
         font-size: 19px;
         font-style: italic;
-        color: #454242;
         font-weight: normal;
         padding-top: 20px;
 
@@ -38,29 +37,58 @@ div.about-information{
             animation: showingDown .8s linear  1 normal forwards;
         }
     }
+
+    h3.light{
+        color: #454242; 
+    }
+
+    h3.dark{
+        color: #{$fwhite};
+    }
     
-    p{
+    p.light,
+    p.dark{
         margin-block-start: 0;
         font-family: #{$fExpletus};
         font-size: 18px;
-        color: #333333;
         &.show{
             opacity: 0;
             animation: showingDown .8s linear .1s 1 normal forwards;
         }
     }
 
+    p.light{
+        color: #333333;
+    }
+
+    p.dark{
+        color: #{$fwhite};
+    }
+
     div.name-wrapper{
         display: flex;
         justify-content: center;
 
+        p.dark{
+            color: #{$fwhite};
+        }
+
+        p.light{
+            color: #333333;
+        }
+        
         p.name{
             font-family: #{$fBauhausRegular};
             font-size: 40px;
     
-            span{
+            span.light{
                 color: #{$bordeux}
             }
+
+            span.dark{
+                color: #{$carRed};
+            }
+            
             &.show{
                 opacity: 0;
                 animation: showingDown .8s linear .1s 1 normal forwards;
@@ -83,7 +111,6 @@ div.about-information{
 
         a{
             cursor: pointer;
-            background-color: #{$bordeux};
             color: #{$white};
             font-family: #{$fExpletus};
             height: 40px;
@@ -102,6 +129,14 @@ div.about-information{
             &.show:hover{
                 opacity: 0.8 !important;
             }
+        }
+
+        a.light{
+            background-color: #{$bordeux};
+        }
+
+        a.dark{
+            background-color: #{$carRed};
         }
     }
 }
@@ -132,12 +167,22 @@ div.about-photo{
             height: 30px;
         }
 
+        &.show{
+            animation: showingDown .8s linear 0s 1 normal forwards;
+        }
+    }
+
+    p.light{
+        color: #{$rBlack};
         span{
             color: #{$bordeux};
         }
+    }
 
-        &.show{
-            animation: showingDown .8s linear 0s 1 normal forwards;
+    p.dark{
+        color: #{$fwhite};
+        span{
+            color: #{$carRed};
         }
     }
 }
@@ -145,10 +190,22 @@ div.about-photo{
 h3.inspiration-label{
     font-family: #{$fBauhausRegular};
     font-size: 25px;
+}
+
+h3.inspiration-label.light{
+    color: #{$rBlack};
     span{
         color: #{$bordeux};
     }
 }
+
+h3.inspiration-label.dark{
+    color: #{$fwhite};
+    span{
+        color: #{$carRed};
+    }
+}
+
 
 div.inspiration-gallery-container,
 div.small-gallery-container{
