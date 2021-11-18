@@ -1,11 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {mode as savedMode} from '../util/recoil-atoms';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
 
 import '../styles/burgerMenu.scss';
 import close from '../assets/icons/close.png';
 
 const BurgerMenu = ({callback}) =>{
-    const [mode, setMode] = useState(localStorage.getItem('mode'));
+    const setMode = useSetRecoilState(savedMode);
+    const mode = useRecoilValue(savedMode);
 
     const handleClick = () =>{
         if(mode === 'light'){

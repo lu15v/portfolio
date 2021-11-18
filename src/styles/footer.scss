@@ -17,11 +17,33 @@ div.footer-content{
     margin-bottom: 30px;
 }
 
-div.footer-content p{
-    text-align: end;
-    margin: 0;
-    font-size: 15px;
-    span.bordeux{
-        color: #{$bordeux};
+div.footer-content {
+    
+    p{
+        text-align: end;
+        margin: 0;
+        font-size: 15px;
+    }
+
+    p.dark{
+        color: #{$fwhite};
+        
+        span{
+            color: #{$fwhite};
+        }
+        span.red{
+            color: #{$carRed};
+        }
+    }
+
+    p.light{
+        color: #{$rBlack};
+
+        span{
+            color: #{$rBlack};
+        }
+        span.red{
+            color: #{$bordeux};
+        }
     }
 }

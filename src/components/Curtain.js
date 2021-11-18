@@ -1,10 +1,14 @@
 import React,{useState, useEffect} from 'react';
 import { withRouter } from "react-router-dom";
+import {mode as savedMode} from '../util/recoil-atoms';
 
 import '../styles/curtain.scss';
+import { useSetRecoilState } from 'recoil';
 
 const Curtain = ({history}) =>{
 
+    const setMode = useSetRecoilState(savedMode);
+    
     const [L, setL] = useState('');
     const [U, setU] = useState('');
     const [I, setI] = useState('');
@@ -57,6 +61,8 @@ const Curtain = ({history}) =>{
         if(!localStorage.getItem("mode")){
             localStorage.setItem("mode", 'light')
         }
+
+        setMode(localStorage.getItem('mode'));
         
         history.push('/');
     }

@@ -1,6 +1,7 @@
 @import './variables';
 
-header.site-header{
+header.site-header,
+header.site-header-dark{
     padding: 20px 0;
     width: 100%;
     display: flex;
@@ -8,8 +9,15 @@ header.site-header{
     position: sticky;
     top: 0;
     z-index: 998;
-    background: #{$white};
     opacity: 0.9;
+}
+
+header.site-header{
+    background: #{$white};
+}
+
+header.site-header-dark{
+    background: #{$darkHColor};
 }
 
 header div.header-wrapper{
@@ -47,6 +55,12 @@ div.header-wrapper .header-content{
         // border-bottom: 0px;
         // transition: border-bottom 1s;
     }
+    a.dark{
+        color: #{$fwhite};
+    }
+    a.light{
+        color: #{$rBlack};
+    }
 
     a::after{
         content: '';
@@ -81,7 +95,11 @@ div.header-wrapper .header-content{
         cursor: pointer;
     }
 
-    a::first-letter{
+    a.light::first-letter{
         color: #{$bordeux};
+    }
+
+    a.dark::first-letter{
+        color: #{$carRed}
     }
 }

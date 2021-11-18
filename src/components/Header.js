@@ -1,6 +1,9 @@
 import React,{useEffect, useState} from 'react';
 import {NavLink, withRouter, useLocation} from 'react-router-dom';
 import useWindowDimensions from '../hooks/windowDImentions';
+import {mode as savedMode} from '../util/recoil-atoms';
+import { useSetRecoilState, useRecoilValue } from 'recoil';
+
 import BurgerMenu from './burgerMenu';
 import picture from '../assets/logo.png';
 import menu from '../assets/icons/burger-icon.png';
@@ -10,7 +13,8 @@ const Header = ({history}) =>{
     const {pathname} = useLocation();
     const [activePath, setActivePath] = useState('');
     const [displayMenu, setDisplayMenu] = useState(false);
-    const [mode, setMode] = useState(localStorage.getItem('mode'));
+    const setMode = useSetRecoilState(savedMode);
+    const mode = useRecoilValue(savedMode);
 
     const { width} = useWindowDimensions()
 
@@ -30,20 +34,20 @@ const Header = ({history}) =>{
         }
         setMode(localStorage.getItem('mode'));
     }
-    
+
     return(
         <>
             {displayMenu && <BurgerMenu callback={setDisplayMenu}/>}
-            <header className="site-header">
+            <header className={mode === 'dark' ? "site-header-dark" : "site-header"}>
                 <div className="header-wrapper">
                     <div className="header-content">
                         <img id="logo"  className="logo" onClick={redirectHome} src={picture} alt="logo"/>
                         <div className="navbar-wrapper">
                             {width > 900 ? (
                             <>
-                            <NavLink to="/about">{activePath === '/about' ? '{About}' : "About"}</NavLink>
-                            <NavLink to="/contact">{activePath === '/contact' ? '{Contact}' : "Contact"}</NavLink>
-                            <a onClick={handleClick}>Dark Mode</a>
+                            <NavLink className={mode} to="/about">{activePath === '/about' ? '{About}' : "About"}</NavLink>
+                            <NavLink className={mode} to="/contact">{activePath === '/contact' ? '{Contact}' : "Contact"}</NavLink>
+                            <a className={mode} onClick={handleClick}>Dark Mode</a>
                             {/* <NavLink to="/resume">{activePath === '/resume' ? '{Resume}' : "Resume"}</NavLink> */}
                             </>
                             ) :

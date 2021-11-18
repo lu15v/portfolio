@@ -9,14 +9,18 @@ import About from './About';
 import NotFound from './NotFound';
 import Footer from './Footer';
 import { withRouter } from "react-router-dom";
+import {mode as savedMode} from '../util/recoil-atoms';
+import {useRecoilValue } from 'recoil';
 
 import '../styles/pageWrapper.scss';
 
 
 
 const PageWrapper = () =>{
+    const mode = useRecoilValue(savedMode);
+    
     return(
-        <div className="hero page-wrapper-container">
+        <div className={mode === "dark" ? "hero page-wrapper-container-dark" : "hero page-wrapper-container"}>
             <Header/>
             <div id="content">
                 <div id="primary" className="wrapper">
