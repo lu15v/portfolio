@@ -57,9 +57,21 @@ div.header-wrapper .header-content{
     }
     a.dark{
         color: #{$fwhite};
+        p{
+            margin: 0;
+            span{
+                color: #{$carRed}
+            }
+        }
     }
     a.light{
         color: #{$rBlack};
+        p{
+            margin: 0;
+            span{
+                color: #{$bordeux};
+            }
+        }
     }
 
     a::after{
@@ -95,11 +107,12 @@ div.header-wrapper .header-content{
         cursor: pointer;
     }
 
-    a.light::first-letter{
+    a#dark-mode.light::first-letter{
         color: #{$bordeux};
     }
 
-    a.dark::first-letter{
+    a#dark-mode.dark::first-letter{
         color: #{$carRed}
     }
+
 }

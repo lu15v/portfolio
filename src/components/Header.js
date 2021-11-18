@@ -35,6 +35,12 @@ const Header = ({history}) =>{
         setMode(localStorage.getItem('mode'));
     }
 
+    const formatLink = (linkName) => {
+        return(
+            <p>{'{'}<span>{linkName.substring(0,1)}</span>{linkName.substring(1)}{'}'}</p>
+        )
+    }
+
     return(
         <>
             {displayMenu && <BurgerMenu callback={setDisplayMenu}/>}
@@ -45,9 +51,9 @@ const Header = ({history}) =>{
                         <div className="navbar-wrapper">
                             {width > 900 ? (
                             <>
-                            <NavLink className={mode} to="/about">{activePath === '/about' ? '{About}' : "About"}</NavLink>
-                            <NavLink className={mode} to="/contact">{activePath === '/contact' ? '{Contact}' : "Contact"}</NavLink>
-                            <a className={mode} onClick={handleClick}>Dark Mode</a>
+                            <NavLink className={mode} to="/about">{activePath === '/about' ? formatLink("About"): "About"}</NavLink>
+                            <NavLink className={mode} to="/contact">{activePath === '/contact' ? formatLink("Contact") : "Contact"}</NavLink>
+                            <a className={mode} id="dark-mode" onClick={handleClick}>Dark Mode</a>
                             {/* <NavLink to="/resume">{activePath === '/resume' ? '{Resume}' : "Resume"}</NavLink> */}
                             </>
                             ) :
