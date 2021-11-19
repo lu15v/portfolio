@@ -55,6 +55,7 @@ div.header-wrapper .header-content{
         // border-bottom: 0px;
         // transition: border-bottom 1s;
     }
+
     a.dark{
         color: #{$fwhite};
         p{
@@ -64,6 +65,7 @@ div.header-wrapper .header-content{
             }
         }
     }
+
     a.light{
         color: #{$rBlack};
         p{
@@ -72,6 +74,14 @@ div.header-wrapper .header-content{
                 color: #{$bordeux};
             }
         }
+    }
+
+    a.dark::first-letter{
+        color: #{$carRed};
+    }
+
+    a.light::first-letter{
+        color: #{$bordeux};
     }
 
     a::after{
