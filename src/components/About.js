@@ -73,7 +73,7 @@ const About = () =>{
         </div>
         <hr className="show" />
         <div className="small-gallery-container">
-            <img className="show" id="first-photo" src={aboutP1} alt="Old friends" title="Old friends" onClick={() => handleZoom(true, aboutP1)}/>
+            <img className="show" id="first-photo" src={aboutP1} alt="Old friends" title="WA friends" onClick={() => handleZoom(true, aboutP1)}/>
             <img className="show" id="second-photo" src={aboutP2} alt="College friends" title="College friends" onClick={() => handleZoom(true, aboutP2)}/>
             <img className="show" id="third-photo" src={aboutP3} alt="GDL friends"  title="GDL friends" onClick={() => handleZoom(true, aboutP3)}/>
         </div>
