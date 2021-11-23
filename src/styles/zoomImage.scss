@@ -16,7 +16,6 @@ div.photo-wrapper{
     flex-direction: column;
 
     div.close-container{
-        display: flex;
         padding: 60px;
         flex-direction: column;
         max-height: 10%;
@@ -25,13 +24,11 @@ div.photo-wrapper{
             cursor: pointer;
             width: 35px;
             height: 35px;
-            align-self: end !important;
-            margin-bottom: 30px;
+            float: right;
         }
     }
 
     div.photo-container{
-        // margin: 60px;
         width: 100%;
         height: auto;
         max-height: 80%;
@@ -48,10 +45,7 @@ div.photo-wrapper{
 @media screen and (max-height: 495px){
     div.photo-wrapper{
         div.close-container{
-            padding: 0;
-            padding-right: 60px;
             padding-top: 10px;
-            margin-bottom: 10px;
         }
     }
 }
@@ -75,6 +69,7 @@ div.photo-wrapper{
         }
     }
 }
+
 @media screen and (min-width: 300px){
     div.photo-wrapper{
 
