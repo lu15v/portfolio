@@ -6,17 +6,25 @@ import uniqid from 'uniqid';
 import { Redirect, useParams } from 'react-router';
 import ProgressBar from './progressBar';
 import ZoomImage from './ZoomImage';
+import {mode as savedMode} from '../util/recoil-atoms';
+import { useRecoilValue } from 'recoil';
 
 import play from '../assets/play.png';
 import notPlay from '../assets/not_play.png';
 import next from '../assets/next.png';
 import before from '../assets/before.png';
+import play_white from '../assets/play-white.png';
+import notPlay_white from '../assets/no_play-white.png';
+import next_white from '../assets/next-white.png';
+import before_white from '../assets/before-white.png';
+import macOs_white from '../assets/macos_white.png';
 
 import '../styles/projectDetail.scss';
 
 const ProjectDetail = ({history}) =>{
     const [getProject, {error,loading, data}] = useLazyQuery(GET_PROJECT);
     const [isZoomActive, setIsZoomActive] = useState(false);
+    const mode = useRecoilValue(savedMode);
 
     let { item, range } = useParams();
 
@@ -41,6 +49,32 @@ const ProjectDetail = ({history}) =>{
         });
     }, [item])
     
+
+    const mediaButtons = (mode) =>{
+        let currentPlay = play;
+        let currentBefore = before;
+        let currentNotPlay = notPlay;
+        let currentNext = next;
+
+        if(mode === 'dark'){
+            currentPlay = play_white;
+            currentBefore = before_white;
+            currentNotPlay = notPlay_white;
+            currentNext = next_white;
+        }
+        
+        return(
+            <>
+                <img className="show" src={currentBefore} id="Before" alt="Before" onClick={() => handleFollowingProject(data.getProject.prevProject,parseInt(idx) - 1, max)}/>
+                {data.getProject.demo === '' ? 
+                <img className="show" src={currentNotPlay} id="NotPlay" alt="NotPlay"/>
+                :
+                <a href={data.getProject.demo} rel="noopener noreferrer nofollow" target="_blank"><img className="show" src={currentPlay} id="Play" alt="Play"/></a>
+                }
+                <img className="show" src={currentNext} id="Next" alt="Next" onClick={() => handleFollowingProject(data.getProject.nextProject, parseInt(idx) + 1, max)}/>
+            </>
+        )
+    }
 
     const zoomPicture = () =>{
         setIsZoomActive(true);
@@ -75,8 +109,8 @@ const ProjectDetail = ({history}) =>{
                         </div>
                         {!loading  && data && data.getProject  ? (
                         <>
-                            <p className="show">about the project</p>
-                            <article className="show">
+                            <p className={`${mode} show`}>about the project</p>
+                            <article className={`${mode} show`}>
                             {data.getProject.description}
                             </article>
                         </>
@@ -95,8 +129,7 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className="show" src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture}/>
-
+                            <img className={`${mode} show`} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture}/>
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>
                         )
@@ -109,15 +142,7 @@ const ProjectDetail = ({history}) =>{
                     <br/>
                     <div className="navigation-buttons">
                         {!loading  && data && data.getProject  ? (
-                            <>
-                                <img className="show" src={before} id="Before" alt="Before" onClick={() => handleFollowingProject(data.getProject.prevProject,parseInt(idx) - 1, max)}/>
-                                {data.getProject.demo === '' ? 
-                                <img className="show" src={notPlay} id="NotPlay" alt="NotPlay"/>
-                                :
-                                <a href={data.getProject.demo} rel="noopener noreferrer nofollow" target="_blank"><img className="show" src={play} id="Play" alt="Play"/></a>
-                                }
-                                <img className="show" src={next} id="Next" alt="Next" onClick={() => handleFollowingProject(data.getProject.nextProject, parseInt(idx) + 1, max)}/>
-                            </>
+                            mediaButtons(mode)
                         ):(
                             <SkeletonLoading items={3} styles={{height: '65px', width: '75px'}}/>
                         )
@@ -128,7 +153,7 @@ const ProjectDetail = ({history}) =>{
             <div className="project-stack-container">
                 <div className="stack-label-container">
                     {!loading  && data && data.getProject ? (
-                        <h3 className="show">Stack</h3>
+                        <h3 className={`${mode} show`}>Stack</h3>
                     ) :
                         <SkeletonLoading styles={{height: '30px', width: '70px'}}/>
                     }
@@ -138,6 +163,9 @@ const ProjectDetail = ({history}) =>{
                     {!loading  && data && data.getProject ? (
                         <>
                            {data.getProject.stack.map(tech => {
+                               if(tech.name === 'MacOS' && mode === 'dark'){
+                                    return <img className={tech.name === 'MacOS' || tech.name === "Love" ? "rectangle show" :"show"} key={uniqid()} src={macOs_white} alt={tech.name} title={tech.name}/>
+                               }
                                return <img className={tech.name === 'MacOS' || tech.name === "Love" ? "rectangle show" :"show"} key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
                            })
                            }
