@@ -15,7 +15,7 @@
 }
 
 .dark.meter{
-    background: #d9dad8;
+    background: #212121;
 }
 
 .meter-circle-container{
@@ -31,7 +31,7 @@
         }
         
         &.dark{
-            background-color: #{$bordeux};
+            background-color: #{$carRed};
         }
     }
 
@@ -48,7 +48,7 @@
 
     span.dark:after{
         content: '';
-        background-color: #{$bordeux};
+        background-color: #{$carRed};
         height: 10px;
         width: 10px;
         position: absolute;
