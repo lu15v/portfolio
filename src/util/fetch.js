@@ -30,7 +30,8 @@ export const GET_PROJECT = gql`
             nextProject,
             stack{
                 name,
-                logo
+                logo,
+                logo_dark_mode
             }
         }
     }

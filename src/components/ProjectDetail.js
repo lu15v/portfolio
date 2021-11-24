@@ -17,7 +17,6 @@ import play_white from '../assets/play-white.png';
 import notPlay_white from '../assets/no_play-white.png';
 import next_white from '../assets/next-white.png';
 import before_white from '../assets/before-white.png';
-import macOs_white from '../assets/macos_white.png';
 
 import '../styles/projectDetail.scss';
 
@@ -163,10 +162,8 @@ const ProjectDetail = ({history}) =>{
                     {!loading  && data && data.getProject ? (
                         <>
                            {data.getProject.stack.map(tech => {
-                               if(tech.name === 'MacOS' && mode === 'dark'){
-                                    return <img className={tech.name === 'MacOS' || tech.name === "Love" ? "rectangle show" :"show"} key={uniqid()} src={macOs_white} alt={tech.name} title={tech.name}/>
-                               }
-                               return <img className={tech.name === 'MacOS' || tech.name === "Love" ? "rectangle show" :"show"} key={uniqid()} src={tech.logo} alt={tech.name} title={tech.name}/>
+                               const {logo, logo_dark_mode, name} = tech;
+                               return <img className={name === 'MacOS' || name === "Love" ? "rectangle show" :"show"} key={uniqid()} src={mode === 'dark' ? logo_dark_mode : logo} alt={name} title={name}/>
                            })
                            }
                        </>
