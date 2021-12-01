@@ -157,6 +157,10 @@ div.about-photo{
         &.show{
             animation: showingDown .8s linear 0s 1 normal forwards;
         }
+
+        &.hidden{
+            opacity: 0;
+        }
     }
 
     p.photo-label{
@@ -255,6 +259,10 @@ div.small-gallery-container{
 
         &[id='third-photo'].show{
             animation: showingDown .8s linear .1s 1 normal forwards;
+        }
+
+        &.hidden{
+            opacity: 0;
         }
     }
 }

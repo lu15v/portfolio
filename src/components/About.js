@@ -29,16 +29,29 @@ const About = () =>{
     const [quote, setQuote] = useState(0);
     const [isZoomActive, setIsZoomActive] = useState(false);
     const mode = useRecoilValue(savedMode);
+    const [arePicsLoaded, setArePicsLoaded] = useState({
+        mainPicture: false,
+        firstPictureGallery: false,
+        secondPictureGallery: false,
+        thirdPictureGallery: false
+    });
+
+    const handleOnLoaded = (property) =>{
+        let currState = {...arePicsLoaded};
+        currState[property] = true;
+        
+        setArePicsLoaded(currState);
+    }
 
     const [pictureLink, setPictureLink] = useState('');
 
-        setTimeout(() =>{
-            if(quote === quotes.length - 1){
-                setQuote(0);
-            }else{
-                setQuote(quote + 1);
-            }
-        }, 5000)
+    setTimeout(() =>{
+        if(quote === quotes.length - 1){
+            setQuote(0);
+        }else{
+            setQuote(quote + 1);
+        }
+    }, 5000)
     
     const handleZoom = (open, pictureLink = '') => {
         setPictureLink(pictureLink);
@@ -60,22 +73,22 @@ const About = () =>{
                 <p className={`${mode} show`}>I love and I'm looking forward to being part of teams, where I can learn, grow, and share my knowledge with others. Besides, contribute in challenging projects with: high relevance and impact.</p>
                 <p className={`${mode} show`}>Thanks for stopping by! You can take a look to my resume as well.</p>
                 <div className="resume-container">
-                    <a className={`${mode} show`}href="https://drive.google.com/file/d/1bUylek6xWYc7VSrBzA_wfUnfqDsBiT3K/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
+                    <a className={`${mode} show`} href="https://drive.google.com/file/d/1bUylek6xWYc7VSrBzA_wfUnfqDsBiT3K/view?usp=sharing" target="_blank" rel="noreferrer">Resume</a>
                 </div>
                 {
                     <h3 className={`${mode} show`}>{quotes[quote]}</h3>
                 }
             </div>
             <div className="about-photo">
-                <img className="show" src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)}/>
+                <img className={arePicsLoaded.mainPicture ? "show" : "hidden" }src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)} onLoad={() => handleOnLoaded("mainPicture")}/>
                 <p className={`${mode} photo-label show`}><img src={Location} alt="Location"/> <span>S</span>omewhere in <span>R</span>edmond</p>
             </div>
         </div>
         <hr className="show" />
         <div className="small-gallery-container">
-            <img className="show" id="first-photo" src={aboutP1} alt="Old friends" title="WA friends" onClick={() => handleZoom(true, aboutP1)}/>
-            <img className="show" id="second-photo" src={aboutP2} alt="College friends" title="College friends" onClick={() => handleZoom(true, aboutP2)}/>
-            <img className="show" id="third-photo" src={aboutP3} alt="GDL friends"  title="GDL friends" onClick={() => handleZoom(true, aboutP3)}/>
+            <img className={arePicsLoaded.firstPictureGallery ? "show" : "hidden"} id="first-photo" src={aboutP1} alt="Old friends" title="WA friends" onClick={() => handleZoom(true, aboutP1)} onLoad={() => handleOnLoaded("firstPictureGallery")}/>
+            <img className={arePicsLoaded.secondPictureGallery ? "show" : "hidden"} id="second-photo" src={aboutP2} alt="College friends" title="College friends" onClick={() => handleZoom(true, aboutP2)} onLoad={() => handleOnLoaded("secondPictureGallery")}/>
+            <img className={arePicsLoaded.thirdPictureGallery ? "show" : "hidden"} id="third-photo" src={aboutP3} alt="GDL friends"  title="GDL friends" onClick={() => handleZoom(true, aboutP3)} onLoad={() => handleOnLoaded("thirdPictureGallery")}/>
         </div>
         <hr className="show" />
         <h3 className={`inspiration-label ${mode}`}><span>S</span>ome of my <span>i</span>nspiration</h3>
