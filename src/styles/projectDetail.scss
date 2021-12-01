@@ -131,6 +131,10 @@
                 &.remove{
                     animation: remove .5s linear 0s 1 normal forwards;
                 }
+
+                &.hidden{
+                    opacity: 0;
+                }
             }
         }
     }

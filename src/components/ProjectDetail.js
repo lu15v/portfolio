@@ -23,6 +23,7 @@ import '../styles/projectDetail.scss';
 const ProjectDetail = ({history}) =>{
     const [getProject, {error,loading, data}] = useLazyQuery(GET_PROJECT);
     const [isZoomActive, setIsZoomActive] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const mode = useRecoilValue(savedMode);
 
     let { item, range } = useParams();
@@ -40,6 +41,11 @@ const ProjectDetail = ({history}) =>{
         }
 
         history.push(`/${projectName.replaceAll(" ", "_")}/${idx}_${limit}`)
+        setIsLoaded(false);
+    }
+
+    const handleOnload = () =>{
+        setIsLoaded(true);
     }
 
     useEffect(() => {
@@ -128,7 +134,7 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className={`${mode} show`} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture}/>
+                            <img className={isLoaded ? `${mode} show` : 'hidden'} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture} onLoad={handleOnload}/>
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>
                         )
