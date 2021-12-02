@@ -21,6 +21,13 @@ div {
   }
 }
 
+.portfolio-items,
+.detail-wrapper,
+.about-content,
+.menu-grid-container{
+  padding-top: 30px !important;
+}
+
 @media screen and (max-width: 768px){
     .menu-grid-container,
     .header-wrapper,
