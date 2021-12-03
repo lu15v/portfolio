@@ -9,7 +9,8 @@ import close from '../assets/icons/close.png';
 const BurgerMenu = ({callback}) =>{
     const setMode = useSetRecoilState(savedMode);
     const mode = useRecoilValue(savedMode);
-
+    const modeLabel = mode === 'light' ? 'Dark Mode' : 'Light Mode';
+    
     const handleClick = () =>{
         if(mode === 'light'){
             localStorage.setItem('mode', 'dark');
@@ -26,7 +27,7 @@ const BurgerMenu = ({callback}) =>{
             
             <NavLink id="about" to="/about">About</NavLink>
             <NavLink id="contact" to="/contact">Contact</NavLink>
-            <a id="dark-mode" onClick={handleClick}>Dark Mode</a>
+            <a id="dark-mode" onClick={handleClick}>{modeLabel}</a>
             {/* <NavLink id="resume" to="/resume">Resume</NavLink> */}
         </div>
     )

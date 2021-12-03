@@ -15,6 +15,7 @@ const Header = ({history}) =>{
     const [displayMenu, setDisplayMenu] = useState(false);
     const setMode = useSetRecoilState(savedMode);
     const mode = useRecoilValue(savedMode);
+    const modeLabel = mode === 'light' ? 'Dark Mode' : 'Light Mode';
 
     const { width} = useWindowDimensions()
 
@@ -53,7 +54,7 @@ const Header = ({history}) =>{
                             <>
                             <NavLink className={mode} to="/about">{activePath === '/about' ? formatLink("About"): "About"}</NavLink>
                             <NavLink className={mode} to="/contact">{activePath === '/contact' ? formatLink("Contact") : "Contact"}</NavLink>
-                            <a className={mode} id="dark-mode" onClick={handleClick}>Dark Mode</a>
+                            <a className={mode} id="dark-mode" onClick={handleClick}>{modeLabel}</a>
                             {/* <NavLink to="/resume">{activePath === '/resume' ? '{Resume}' : "Resume"}</NavLink> */}
                             </>
                             ) :
