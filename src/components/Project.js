@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { withRouter } from 'react-router';
 import {mode as savedMode} from '../util/recoil-atoms';
 import { useRecoilValue } from 'recoil';
+import { pictureLoaded } from '../util/pictureloaded';
 
 import '../styles/project.scss';
 
@@ -31,15 +32,6 @@ const Project = (props) =>{
 
     const handleOnClick = () =>{
         history.push(`/${name.replaceAll(" ", "_")}/${projectN}`)
-    }
-
-    const pictureLoaded = (pictureSrc) =>{
-        return new Promise((resolve, reject) =>{
-            let img = new Image();
-            img.onload = () => resolve(true);
-            img.onerror = reject
-            img.src = pictureSrc;
-        })
     }
     
     return(
