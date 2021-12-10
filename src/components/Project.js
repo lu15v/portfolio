@@ -10,11 +10,14 @@ const Project = (props) =>{
     const {name, background, history, projectN} = props;
 
     const [isHovering, setIsHovering] = useState();
-    const [isPictureLoaded, setIsPictureLoaded] = useState();
+    const [isPictureLoaded, setIsPictureLoaded] = useState(false);
+    const [loadingError, setLoadingError] = useState(false);
 
     useEffect(() =>{
         pictureLoaded(background).then(isLoaded => {
             setIsPictureLoaded(isLoaded);
+        }).catch(() => {
+            setLoadingError(true);
         })
     }, [])
 
@@ -34,17 +37,32 @@ const Project = (props) =>{
         history.push(`/${name.replaceAll(" ", "_")}/${projectN}`)
     }
     
-    return(
-        isPictureLoaded ?(<div className={`${mode} item`} style={{backgroundImage: `url(${background})`}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleOnClick} >
+    if(isPictureLoaded){
+        return(
+            <div className={`${mode} item`} style={{backgroundImage: `url(${background})`}} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleOnClick} >
            <div className={isHovering ? "hover-wrapper-item showUp" : "hover-wrapper-item"}>
                 <div className="hover-content">
                     <h3>{validName}</h3>
                 </div>
             </div>
-        </div>) :
-        <div className="div.item-skeleton">
         </div>
-    )
+        )
+    }else if(!isPictureLoaded && loadingError){
+        return(
+            <div className={`${mode} item`} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleOnClick} >
+           <div className="hover-wrapper-item showUp">
+                <div className="hover-content">
+                    <h3>{validName}</h3>
+                </div>
+            </div>
+        </div>
+        )
+    }else{
+        return(
+            <div className="div.item-skeleton">
+            </div>
+        )
+    }
 }
 
 export default withRouter(Project);
