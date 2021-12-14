@@ -1,5 +1,5 @@
 import React from 'react';
-import Project from './Project';
+import ProjectContainer from './ProjectContainer';
 import SkeletonLoading from './SkeletonLoading';
 import { withRouter, Redirect } from 'react-router';
 import { useQuery } from "@apollo/react-hooks";
@@ -73,14 +73,15 @@ const Portfolio = () =>{
         //     </>
             <div className="portfolio-items">
                 {data.getProjects.map((project, idx) =>{
-                    return(<Project name={project.name} key={uniqid()} projectN={`${idx + 1}_${totalProjects}`} background={`https://${project.coverPagePicture}`}/>)
+                    const isPictureLoaded = false;
+                    return(<ProjectContainer name={project.name} key={uniqid()} projectN={`${idx + 1}_${totalProjects}`} background={`https://${project.coverPagePicture}`} loaded={isPictureLoaded}/>)
                 })
                 }
             </div>
             ):
             <div className="portfolio-items">
                 <SkeletonLoading items={15}>
-                    <Project isSkeleton={true}/>
+                    <div className="div.item-skeleton"></div>
                 </SkeletonLoading>
             </div>
             // <>
