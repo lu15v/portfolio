@@ -1,0 +1,81 @@
+@import "variables.scss";
+
+.loading-wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.waves-wrapper {
+  display: flex;
+}
+
+.wave {
+  width: 5px;
+  height: 100px;
+  background: #{$bordeux};
+//   background: linear-gradient(45deg, cyan, #fff);
+  margin: 10px;
+  animation: wave 1s linear infinite;
+  border-radius: 20px;
+}
+.wave:nth-child(2) {
+  animation-delay: 0.1s;
+  background: #{$yellow_variance};
+}
+.wave:nth-child(3) {
+  animation-delay: 0.2s;
+  background: #{$green};
+}
+.wave:nth-child(4) {
+  animation-delay: 0.3s;
+  background: #{$green_aqua};
+}
+.wave:nth-child(5) {
+  animation-delay: 0.4s;
+  background: #{$blue_aqua};
+}
+.wave:nth-child(6) {
+  animation-delay: 0.5s;
+  background: #{$blue};
+}
+.wave:nth-child(7) {
+  animation-delay: 0.6s;
+  background: #{$dark_blue};
+}
+.wave:nth-child(8) {
+  animation-delay: 0.7s;
+  background: #{$purple};
+}
+.wave:nth-child(9) {
+  animation-delay: 0.8s;
+  background: #{$mexican_pink};
+}
+.wave:nth-child(10) {
+  animation-delay: 0.9s;
+  background: #{$fluorescent_pink};
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.loading-message {
+  color: #{$fwhite};
+  font-family: #{$fBauhausRegular};
+  font-size: 18px;
+}

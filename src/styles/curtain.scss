@@ -1,99 +1,88 @@
 @import "variables.scss";
 
-$assetPath:"../assets/";
+$assetPath: "../assets/";
 
-
-.main-background{
-    position: relative;
-}
-.main-background::before{
-    content: '';
-    background-image: url(#{$assetPath}/curtain-background.png);
-    // background: linear-gradient(45deg, rgb(134, 0, 41), rgb(0, 5, 5));
-    // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(0, 5, 5), rgb(255, 255, 255));
-    // background: linear-gradient(45deg, rgb(0, 5, 5), rgb(134, 0, 41));
-    // background: linear-gradient(45deg, rgb(21, 28, 46), rgb(69, 94, 116));
-    // background: linear-gradient(45deg, rgb(69, 94, 116), rgb(170, 184, 195));
-    // background-color: #{$rBlack};
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.4;
-    background-position: bottom;
+.main-background {
+  opacity: 0.4;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
-div.curtain-content-wrapper{
-    position: relative;
+div.curtain-content-wrapper {
+  position: relative;
 }
 
 div.name-container,
-div.occupation-container{
-    height: auto;
-    letter-spacing: 2px;
+div.occupation-container {
+  height: auto;
+  letter-spacing: 2px;
 
-    & span{
-        color: #{$white};
-        font-family: #{$fBauhausRegular}
-    }
-    & .bordeux{
-        color: #{$bordeux}
-    }
-    & .spacing-right{
-        padding-right: 10px;
-    }
-}
-
-div.name-container{
-    font-size: 60px;
-    margin-bottom: 1rem;
-}
-
-div.occupation-container{
-    font-size: 25px;
-    margin-bottom: 5rem;
-}
-
-div.enter-to-site-container{
+  & span {
     color: #{$white};
-    font-size: 20px;
-    letter-spacing: 2px;
-    // text-transform: uppercase;
-    font-family: #{$fExpletus}, cursive;
-    opacity: 0;
-    animation: showUp 1.5s linear 3.5s infinite alternate forwards;
-
-    & a{
-        cursor: pointer;
-    }
+    font-family: #{$fBauhausRegular};
+  }
+  & .bordeux {
+    color: #{$bordeux};
+  }
+  & .spacing-right {
+    padding-right: 10px;
+  }
 }
 
+div.name-container {
+  font-size: 60px;
+  margin-bottom: 1rem;
+}
+
+div.occupation-container {
+  font-size: 25px;
+  margin-bottom: 5rem;
+}
+
+div.enter-to-site-container {
+  color: #{$white};
+  font-size: 20px;
+  letter-spacing: 2px;
+  // text-transform: uppercase;
+  font-family: #{$fExpletus}, cursive;
+  opacity: 0;
+  animation: showUp 1.5s linear 3.5s infinite alternate forwards;
+
+  & a {
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .main-background {
+    object-fit: cover;
+  }
+}
 
 @media only screen and (max-width: 600px) {
-    div.name-container,
-    div.occupation-container{
-        width: auto;
-    }
-    div.name-container{
-        font-size: 25px;
-    }
-    div.occupation-container{
-        font-size: 14px;
-    }
-    div.enter-to-site-container{
-        font-size: 15px;
-    }
+  div.name-container,
+  div.occupation-container {
+    width: auto;
+  }
+  div.name-container {
+    font-size: 25px;
+  }
+  div.occupation-container {
+    font-size: 14px;
+  }
+  div.enter-to-site-container {
+    font-size: 15px;
+  }
 }
 
 @keyframes showUp {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-    
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
