@@ -11,7 +11,7 @@ const Contact = () =>{
                 <SquaredLink styles="mail" name="Mail" url="mailto:luis.ed.ballinas@gmail.com"/>
                 <SquaredLink styles="github" name="GitHub" url="https://github.com/lu15v"/>
                 <SquaredLink styles="old-site" name="Old Site" url="https://rasanod.com"/>
-                <SquaredLink styles="instagram" name="Instagram" url="https://www.instagram.com/lu15v/"/>
+                <SquaredLink styles="instagram" name="Instagram" url="https://www.instagram.com/lisuar_ba/"/>
                 <SquaredLink styles="whats" name="whats" url="https://wa.me/525516609794"/>
             </div>
         </div>

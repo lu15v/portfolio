@@ -5,12 +5,13 @@ import {useRecoilValue } from 'recoil';
 
 const Footer = () =>{
     const mode = useRecoilValue(savedMode);
-
+    const year = new Date().getFullYear();
+    const footer_rights = `© Luis Ballinas - ${year}. All rights reserved.`
     return(
         <div className="footer-wrapper">
             <div className="footer-content">
                 <p className={mode}><span className="red">S</span><span>oftware</span> <span className="red">E</span><span>ngineer</span></p>
-                <p className={mode}>© Luis Ballinas - 2021. All rights reserved.</p>
+                <p className={mode}>{footer_rights}</p>
             </div>
         </div>
     );
