@@ -71,12 +71,13 @@ const Curtain = ({ history }) => {
 
   return (
     <>
-      {!backgroundLoaded && <Loading />}
+      {!backgroundLoaded && <Loading totalContainers={10}/>}
       <div className="hero column-centered">
         <img
           className="main-background"
           src={background}
           onLoad={() => setBackgroundLoaded(true)}
+          alt='background'
         />
         {backgroundLoaded && <div className="curtain-content-wrapper">
           <div className="name-container">
