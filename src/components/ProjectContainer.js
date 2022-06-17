@@ -51,7 +51,6 @@ const ProjectContainer = (props) => {
         handleMouseOut={handleMouseOut}
         handleMouseOver={handleMouseOver}
         handleOnClick={handleOnClick}
-        backgroundLoaded={!loadingError}
       />
     );
   } else {
