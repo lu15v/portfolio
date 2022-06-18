@@ -71,7 +71,7 @@ const Curtain = ({ history }) => {
 
   return (
     <>
-      {!backgroundLoaded && <Loading totalContainers={10}/>}
+      {!backgroundLoaded && <Loading totalWaves={10}/>}
       <div className="hero column-centered">
         <img
           className="main-background"
