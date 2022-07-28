@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import uniqid from 'uniqid';
+import ImageWavesLoading from './ImageWavesLoading';
 import ZoomImage from './ZoomImage';
 import {mode as savedMode} from '../util/recoil-atoms';
 import { useRecoilValue } from 'recoil';
@@ -11,7 +12,6 @@ import aboutP3 from '../assets/about-photo-3.png';
 import Mex from '../assets/icons/mex-icon-32.png';
 import Location from '../assets/icons/location.ico';
 import Quotes from './Quotes';
-
 import '../styles/about.scss';
 
 const About = () =>{
@@ -58,8 +58,10 @@ const About = () =>{
                 <Quotes mode={mode} quoteShowTime={5000}/>
             </div>
             <div className="about-photo">
-                <img className={arePicsLoaded.mainPicture ? "show" : "hidden" }src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)} onLoad={() => handleOnLoaded("mainPicture")}/>
-                <p className={`${mode} photo-label show`}><img src={Location} alt="Location"/> <span>S</span>omewhere in <span>R</span>edmond</p>
+                <ImageWavesLoading pictureLoaded={arePicsLoaded.mainPicture}>
+                    <img className={arePicsLoaded.mainPicture ? "show" : "hidden" } src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)} onLoad={() => handleOnLoaded("mainPicture")}/>
+                </ImageWavesLoading>
+                <p className={arePicsLoaded.mainPicture  ? `${mode} photo-label show` : 'photo-label hidden'}><img src={Location} alt="Location"/> <span>S</span>omewhere in <span>R</span>edmond</p>
             </div>
         </div>
         <hr className="show" />

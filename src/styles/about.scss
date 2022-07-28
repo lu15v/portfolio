@@ -7,7 +7,7 @@ div.about-content{
     // grid-auto-rows: minmax(240px, auto);
     max-height: 100%;
     display: flex;
-    overflow-y: auto;
+    // overflow-y: auto;
 }
 
 hr.show{
@@ -159,7 +159,7 @@ div.about-photo{
         }
 
         &.hidden{
-            opacity: 0;
+            display: none;
         }
     }
 
@@ -173,6 +173,10 @@ div.about-photo{
 
         &.show{
             animation: showingDown .8s linear 0s 1 normal forwards;
+        }
+
+        &.hidden{
+            display: none;
         }
     }
 
