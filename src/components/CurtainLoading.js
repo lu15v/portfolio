@@ -11,7 +11,7 @@ export const waveElements = (total = 0) => {
   return waveElementsList;
 }
 
-const Loading = (props) => {
+const CurtainLoading = (props) => {
   const { totalWaves = 0 } = props;
   const MAX_WAVES_ALLOWED = 10;
   const waves = totalWaves <= 10 ? totalWaves : MAX_WAVES_ALLOWED;
@@ -26,4 +26,4 @@ const Loading = (props) => {
   );
 };
 
-export default Loading;
+export default CurtainLoading;

@@ -17,7 +17,7 @@ import play_white from '../assets/play-white.png';
 import notPlay_white from '../assets/no_play-white.png';
 import next_white from '../assets/next-white.png';
 import before_white from '../assets/before-white.png';
-
+import ImageWavesLoading from './ImageWavesLoading';
 import '../styles/projectDetail.scss';
 
 const ProjectDetail = ({history}) =>{
@@ -134,7 +134,9 @@ const ProjectDetail = ({history}) =>{
                     </div>
                     <div className="project-photo">
                         {!loading  && data && data.getProject ? (
-                            <img className={isLoaded ? `${mode} show` : 'hidden'} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture} onLoad={handleOnload}/>
+                            <ImageWavesLoading pictureLoaded={isLoaded}>
+                                <img className={isLoaded ? `${mode} show` : 'hidden'} src={`https://${data.getProject.mainPicture}`} alt={data.getProject.name} title={data.getProject.name} onClick={zoomPicture} onLoad={handleOnload}/>
+                            </ImageWavesLoading>
                         ):(
                             <SkeletonLoading styles={{width: '500px'}}/>
                         )

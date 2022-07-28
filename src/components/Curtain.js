@@ -5,7 +5,7 @@ import { useSetRecoilState } from "recoil";
 import background from "../assets/curtain-background.png";
 
 import "../styles/curtain.scss";
-import Loading from "./Loading";
+import CurtainLoading from "./CurtainLoading";
 
 const Curtain = ({ history }) => {
   const setMode = useSetRecoilState(savedMode);
@@ -71,7 +71,7 @@ const Curtain = ({ history }) => {
 
   return (
     <>
-      {!backgroundLoaded && <Loading totalWaves={10}/>}
+      {!backgroundLoaded && <CurtainLoading totalWaves={10}/>}
       <div className="hero column-centered">
         <img
           className="main-background"
