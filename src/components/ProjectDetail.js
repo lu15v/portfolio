@@ -114,7 +114,7 @@ const ProjectDetail = ({history}) =>{
                         </div>
                         {!loading  && data && data.getProject  ? (
                         <>
-                            <p className={`${mode} show`}>about the project</p>
+                            <p className={`${mode} show`}>About the project</p>
                             <article className={`${mode} show`}>
                             {data.getProject.description}
                             </article>
