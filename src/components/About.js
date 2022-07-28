@@ -59,9 +59,11 @@ const About = () =>{
             </div>
             <div className="about-photo">
                 <ImageWavesLoading pictureLoaded={arePicsLoaded.mainPicture}>
-                    <img className={arePicsLoaded.mainPicture ? "show" : "hidden" } src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)} onLoad={() => handleOnLoaded("mainPicture")}/>
+                    <>
+                        <img className={arePicsLoaded.mainPicture ? "show" : "hidden" } src={Me} alt="Me"  title="Me" onClick={() => handleZoom(true, Me)} onLoad={() => handleOnLoaded("mainPicture")}/>
+                        <p className={arePicsLoaded.mainPicture  ? `${mode} photo-label show` : 'photo-label hidden'}><img src={Location} alt="Location"/> <span>S</span>omewhere in <span>R</span>edmond</p>
+                    </>
                 </ImageWavesLoading>
-                <p className={arePicsLoaded.mainPicture  ? `${mode} photo-label show` : 'photo-label hidden'}><img src={Location} alt="Location"/> <span>S</span>omewhere in <span>R</span>edmond</p>
             </div>
         </div>
         <hr className="show" />
