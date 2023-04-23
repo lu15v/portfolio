@@ -25,9 +25,10 @@ const Portfolio = () =>{
 
     if(error){
         if(error.networkError){
+            const  errorCode = error.networkError?.response?.status ?? 503;
             return <Redirect to={{
                         pathname: '/not_found',
-                        state: { code: error.networkError.response.status, message: "A network connection or server error ocurred when fetching the projects. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
+                        state: { code: errorCode , message: "A network connection or server error ocurred when fetching the projects. Please try again. If the problem persists, check my old portfolio, in the Contact window." }
                     }}
                     />
         }
