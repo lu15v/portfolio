@@ -10,7 +10,7 @@ import App from './App';
 const history = createBrowserHistory();
 
 const httpLink = createHttpLink({
-  uri: 'https://portfolio-graphql-be.herokuapp.com/'
+  uri: process.env.GQL_URL
 });
 
 const apolloClient = new ApolloClient({
