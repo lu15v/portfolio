@@ -10,7 +10,7 @@ import App from './App';
 const history = createBrowserHistory();
 
 const httpLink = createHttpLink({
-  uri: process.env.GQL_URL
+  uri: process.env.REACT_APP_GQL_URL
 });
 
 const apolloClient = new ApolloClient({
