@@ -8,21 +8,10 @@ import uniqid from 'uniqid';
 
 import '../styles/portfolio.scss';
 
-
-const loadMoreButton = (message, callback) =>{
-    return(
-        <button onClick={callback}>{message}</button>
-    )
-}
-
 const Portfolio = () =>{
-
-    // const [getProjects, {loading, data}] = useLazyQuery(GET_N_PROJECTS_GEN_DESC,{
-    //     variables: {first: 12, next: 0}
-    // });
     const {loading, error, data} = useQuery(GET_PROJECTS);
 
-
+    console.log('data ', data)
     if(error){
         if(error.networkError){
             const  errorCode = error.networkError?.response?.status ?? 503;
@@ -38,21 +27,6 @@ const Portfolio = () =>{
         }}
         />
     }
-    
-
-    // useEffect(() =>{
-    //     getProjects();
-    //     console.log(loading, data)
-    //     if(!loading && data){
-    //         const {getNProjects} = data;
-    //         console.log("wtf!!!! ", getNProjects)
-    //         setProjects(getNProjects);
-    //     }
-    // },[])
-
-    // const handleClick = () =>{
-    //     console.log("handleClick")
-    // }
     let totalProjects = 0;
 
     if(!loading && data){
@@ -61,17 +35,6 @@ const Portfolio = () =>{
 
     return(
         !loading && data && data.getProjects ?(
-        // <>
-        // <div className="portfolio-items">
-        //         {projects && projects.map(project =>{
-        //             return(<Project name={project.name} key={uniqid()} background={`https://${project.coverPagePicture}`}/>)
-        //         })
-        //         }
-        //     </div>
-        //     <div className="load-more-wrapper">
-        //         {loadMoreButton("Load More", handleClick)}
-        //     </div>
-        //     </>
             <div className="portfolio-items">
                 {data.getProjects.map((project, idx) =>{
                     const isPictureLoaded = false;
@@ -85,18 +48,6 @@ const Portfolio = () =>{
                     <div className="div.item-skeleton"></div>
                 </SkeletonLoading>
             </div>
-            // <>
-            //     <div className="portfolio-items">
-            //         <SkeletonLoading items={12}>
-            //             <Project isSkeleton={true}/>
-            //         </SkeletonLoading>
-            //     </div>
-            //     <div className="load-more-wrapper">
-            //         <SkeletonLoading>
-            //             {loadMoreButton("", )}
-            //         </SkeletonLoading>
-            //     </div>
-            // </>
     )
 
 }

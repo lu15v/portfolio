@@ -46,7 +46,7 @@ const ProjectDetail = ({history}) =>{
         getProject({
             variables: {name: item.replaceAll("_", " ")}
         });
-    }, [item])
+    }, [item, getProject])
     
 
     const mediaButtons = (mode) =>{

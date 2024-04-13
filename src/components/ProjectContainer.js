@@ -23,6 +23,7 @@ const ProjectContainer = (props) => {
         isPictureLoaded.current = false;
         setLoadingError(true);
       });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const mode = useRecoilValue(savedMode);
